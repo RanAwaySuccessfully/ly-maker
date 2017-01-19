@@ -1,0 +1,245 @@
+﻿/* New Metro Blue */
+
+body.theme0 {background: #121521;}
+.theme0 section {background: #161A28; border-color: #4C65AE; border-width: 0 1px; padding: 7px !important;}
+
+.theme0 h2 {background: none; border-color: #FFF; margin: -7px 0 7px !important; padding: 5px; display: table;}
+.theme0 input, .theme0 button, .theme0 input[type=submit], .theme0 select, .theme0 textarea {margin: 1px; padding: 2px; border-color: #4C65AE; background: #1D2438;}
+
+.theme0 option {background: #1D2438;}
+.theme0 button, .theme0 input[type=submit] {background: #4C65AE; font-family: inherit; padding: 0 3px;}
+.theme0 button:active, .theme0 input[type=submit]:active {background: #7185C1; border-color: #7185C1;}
+.theme0 textarea {border-width: 0 1px; padding: 3px;}
+
+.theme0 th, .theme0 td {border-color: transparent;}
+.theme0 th {background: #4C65AE;}
+.theme0 tr {background: #273459;}
+.theme0 tr:nth-of-type(odd) {background: #1F2A47;}
+.theme0 tr td:first-of-type {width: 300px; max-width: 300px;}
+
+.theme0 .quote .box {border-color: #405060;}
+.theme0 a {color: #4C65AE;}
+.theme0 section:not(#ly-makerPreview) a:hover {color: #95A4D0;}
+
+.theme0 #ly-makerPreview {padding: 0 !important;}
+.theme0 #ly-makerPreview>h2 {display: none;}
+
+
+/* SMWC Default */
+
+body.theme1 {background: #000 url(https://www.smwcentral.net/images/background.gif);}
+.theme1 section {
+    border: 3px double #405060;
+    background: url(https://www.smwcentral.net/images/text_background.png);
+}
+
+
+.theme1 h2 {margin: 0 -3px; border-bottom: 3px double #405060; padding: 5px; background: transparent;}
+
+.theme1 section:first-of-type {
+    padding: 5px;
+    border: 7px solid;
+    border-image: url('data:image/gif;base64,R0lGODlhFgAWAMIEAAAAAHBgCJiIMLioYP///////////////yH5BAEKAAcALAAAAAAWABYAAAOGCLq8d40RMgYYs1qF6bJCtQihdg3CxYGWCJDklbrw+9ZAENi4ris+HyMYKQIexhSJcHw4kUoB0xaQNp/QnPXFumK5YHDV+xSntCCyE21j77DrquXNhpflzbodiYcYGUhFHRuDLgoZhCgqCiQaLVyEMy0bMJJhUZhnPzVnOUJBP0BCfw2BDQkAOw==') 7 repeat;
+}
+.theme1 section:first-of-type h2 {
+    padding-top: 0;
+    margin: 0 -12px 5px;
+    border: 7px solid;
+    border-image: url('data:image/gif;base64,R0lGODlhFgAWAMIEAAAAAHBgCJiIMLioYP///////////////yH5BAEKAAcALAAAAAAWABYAAANEeLrc/jDKSau9OOvNu/9g2ABkaZbKaRLEQA7sIK9t6QqASwqCPN+51801A/B4ueHOyDziAIFAk0mKSqHWqMmq6pJSqgQAOw==') 7 repeat;
+    border-top: none;
+    color: #99F;
+}
+
+.theme1 input, .theme1 button, .theme1 select, .theme1 textarea {border-color: #909090;}
+
+.theme1 th, .theme1 td {border-color: #405060;}
+.theme1 th {background: transparent;}
+
+.theme1 .quote .box {border-color: #405060;}
+.theme1 a, .theme1 section:not(#ly-makerPreview) a:hover {color: #9F9;}
+
+
+/* Halloween */
+
+body.theme2 {background: #000 url(https://www.smwcentral.net/html/halloweenscheme/bg.gif);}
+.theme2 section {background: #111;}
+
+.theme2 h2 {background: #333;}
+.theme2 input, .theme2 button, .theme2 select, .theme2 textarea {border-color: #444;}
+
+.theme2 th, .theme2 td {border-color: #000;}
+.theme2 th {background: #333;}
+
+.theme2 .quote .box {border-color: #000;}
+.theme2 a {color: #F71; font-weight: bold;}
+.theme2 section:not(#ly-makerPreview) a:hover {color: #FF8B33;}
+
+
+/* Night */
+
+body.theme3 {background: #000F1F url(https://www.smwcentral.net/html/nightscheme/bg.gif);}
+.theme3 section {background: #113;}
+
+.theme3 h2 {background: #213;}
+.theme3 input, .theme3 button, .theme3 select, .theme3 textarea {border-color: #2F2F5F;}
+
+.theme3 th, .theme3 td {border-color: #000;}
+.theme3 th {background: #2F2F5F;}
+
+.theme3 .quote .box {border-color: #000;}
+.theme3 a {color: #DEDAFE; font-weight: bold;}
+.theme3 section:not(#ly-makerPreview) a:hover {color: #EEEAFE;}
+
+
+/* Yoshi's Island */
+
+body.theme4 {
+    background: #000 url(https://www.smwcentral.net/html/yischeme/bg.png);
+    font-family: Arial, "Liberation Sans", Helvetica, sans-serif;
+    font-size: 13px;
+}
+.theme4 section {background: url(https://www.smwcentral.net/html/yischeme/green.png);}
+
+.theme4 h2 {background: url(https://www.smwcentral.net/html/yischeme/cat3.png);}
+.theme4 input, .theme4 button, .theme4 select, .theme4 textarea {border-color: #080808;}
+.theme4 button, .theme4 input[type=submit] {
+    padding: 1px 6px;
+    background: #101800;
+    border: 1px solid #182808;
+    border-bottom: 1px solid #000800;
+    border-right: 1px solid #000800;
+}
+
+.theme4 th, .theme4 td {border-color: #000;}
+.theme4 th {background: url(https://www.smwcentral.net/html/yischeme/cat3.png);}
+
+.theme4 .code .box {font: 12px "Courier New", "Liberation Mono", monospace;}
+.theme4 .quote .box {border-color: #181818;}
+.theme4 a {color: #D8D870; font-weight: bold;}
+.theme4 section:not(#ly-makerPreview) a:hover {color: #F8F8C8;}
+
+.theme4 input[type=checkbox]:checked + label {background-position: 0 -30px;}
+.theme4 input[type=radio]:checked + label {background-position: 0 -60px;}
+.theme4 input[type=checkbox]:not(.oldinput) + label, input[type=radio]:not(.oldinput) + label {background-size: 15px;}
+
+
+/* Sky 2 */
+
+body.theme5 {background: #000 url(https://www.smwcentral.net/html/sky2scheme/bg.png);}
+.theme5 section {background: #354349;}
+.theme5 footer {color: #000;}
+
+.theme5 h2 {background: url(https://www.smwcentral.net/html/sky2scheme/cellh.png);}
+.theme5 input, .theme5 button, .theme5 select, .theme5 textarea {
+    color: #D8F2FF;
+    border-color: #3E6B87;
+    border-image: url(https://www.smwcentral.net/html/sky2scheme/cellc.png) 1 stretch;
+}
+
+.theme5 th, .theme5 td {border-color: #000;}
+.theme5 th {background: url(https://www.smwcentral.net/html/sky2scheme/cellh.png);}
+
+.theme5 .code .boxhead {color: #08F;}
+.theme5 .code .box {color: #08F; border-color: #08F;}
+.theme5 .quote .box {border-color: #000;}
+.theme5 a {color: #87ABB7; font-weight: bold;}
+.theme5 section:not(#ly-makerPreview) a:hover {color: #BCEEFF;}
+
+
+/* Hex */
+
+body.theme6 {background: #000 url(https://www.smwcentral.net/html/hexscheme/bg.png);}
+.theme6 section {background: #10282F;}
+
+.theme6 h2 {background: url(https://www.smwcentral.net/html/hexscheme/cellh.png);}
+.theme6 input, .theme6 button, .theme6 select, .theme6 textarea {
+    color: #DEF;
+    border-color: #203040;
+    border-image: url(https://www.smwcentral.net/html/hexscheme/cellc.png) 1 stretch;
+}
+
+.theme6 th, .theme6 td {border-color: #000;}
+.theme6 th {background: url(https://www.smwcentral.net/html/hexscheme/cellh.png);}
+
+.theme6 .code .boxhead {color: #08F;}
+.theme6 .code .box {color: #08F; border-color: #08F;}
+.theme6 .quote .box {border-color: #000;}
+.theme6 a {color: #C0D0F0; font-weight: bold;}
+.theme6 section:not(#ly-makerPreview) a:hover {color: #CED;}
+
+
+/* Winter */
+
+body.theme7 {background: #000 url(https://www.smwcentral.net/html/winterscheme/bg.png);}
+.theme7 section {background: url(https://www.smwcentral.net/html/winterscheme/td3.png); border-color: #1A1226;}
+
+.theme7 h2 {background: #57429F url(https://www.smwcentral.net/html/winterscheme/cellh.png);}
+.theme7 input, .theme7 button, .theme7 select, .theme7 textarea {
+    background: #1A1226;
+    color: #DEF;
+    border-color: #D7C2FF;
+    border-image: url(https://www.smwcentral.net/html/winterscheme/cellc.png) 1 stretch;
+}
+
+.theme7 th, .theme7 td {border-color: #000;}
+.theme7 th {background: #57429F url(https://www.smwcentral.net/html/winterscheme/cellh.png);}
+
+.theme7 .code .boxhead {color: #00FF80;}
+.theme7 .code .box {color: #00FF80; border: 1px dotted #00FF80;}
+.theme7 .quote .box {border: 1px dotted #D8ECF0;}
+.theme7 a {color: #EDF; font-weight: bold;}
+.theme7 section:not(#ly-makerPreview) a:hover {color: #D0D8DC;}
+
+
+/* Circuit */
+
+body.theme8 {background: #000 url(https://www.smwcentral.net/html/circuitscheme/bg.gif);}
+.theme8 section {background: #10200C;}
+
+.theme8 h2 {background: #406030 url(https://www.smwcentral.net/html/circuitscheme/cellh.gif);}
+.theme8 input, .theme8 button, .theme8 select, .theme8 textarea {
+    border-color: #204018;
+    border-image: url(https://www.smwcentral.net/html/circuitscheme/cellc.gif) 1 stretch;
+}
+
+.theme8 th, .theme8 td {border-color: #000;}
+.theme8 th {background: #406030 url(https://www.smwcentral.net/html/circuitscheme/cellh.gif);}
+
+.theme8 .quote .box {border-color: #000;}
+.theme8 a {color: #DEFECA; font-weight: bold;}
+.theme8 section:not(#ly-makerPreview) a:hover {color: #FFEA80;}
+
+
+/* Christmas */
+
+body.theme9 {background: #000 url(https://www.smwcentral.net/html/xmasscheme/cbg.gif);}
+.theme9 section {background: #2A0A0A;}
+
+.theme9 h2 {background: #0B3B0B;}
+.theme9 input, .theme9 button, .theme9 select, .theme9 textarea {color: #CCC; border-color: #444;}
+
+.theme9 th, .theme9 td {border-color: #000;}
+.theme9 th {background: #0B3B0B;}
+
+.theme9 .quote .box {border-color: #000;}
+.theme9 a {color: #F8E0E0; font-weight: bold;}
+.theme9 section:not(#ly-makerPreview) a:hover {color: #F78181;}
+
+
+/* Zelda */
+
+body.theme10 {background: #000 url(https://www.smwcentral.net/html/zeldascheme/bg.gif);}
+.theme10 section {background: #0F3113 url(https://www.smwcentral.net/html/zeldascheme/c1.gif);}
+
+.theme10 h2 {background: #6E5008 url(https://www.smwcentral.net/html/zeldascheme/ch.gif);}
+.theme10 input, .theme10 button, .theme10 select, .theme10 textarea {
+    border-color: #104E1C;
+    border-image: url(https://www.smwcentral.net/html/zeldascheme/cc.gif) 1 stretch;
+}
+
+.theme10 th, .theme10 td {border-color: #000;}
+.theme10 th {background: #6E5008 url(https://www.smwcentral.net/html/zeldascheme/ch.gif);}
+
+.theme10 .quote .box {border-color: #000;}
+.theme10 a {color: #9FD29B; font-weight: bold;}
+.theme10 section:not(#ly-makerPreview) a:hover {color: #B8DECB;}
