@@ -1,21 +1,38 @@
 ﻿/* New Metro Blue */
 
 body.theme0 {background: #121521;}
-.theme0 section {background: #161A28; border-color: #4C65AE; border-width: 0 1px; padding: 7px !important;}
+.theme0 section {
+    background: #161A28;
+    border-color: #4C65AE;
+    border-width: 0 1px;
+    padding: 7px !important;
+}
 
-.theme0 h2 {background: none; border-color: #FFF; margin: -7px 0 7px !important; padding: 5px; display: table;}
-.theme0 input, .theme0 button, .theme0 input[type=submit], .theme0 select, .theme0 textarea {margin: 1px; padding: 2px; border-color: #4C65AE; background: #1D2438;}
+.theme0 h2 {
+    background: none;
+    border-color: #FFF;
+    margin: -7px 0 7px !important;
+    padding: 5px;
+    display: table;
+}
+.theme0 input, .theme0 button, .theme0 input[type=submit], .theme0 select, .theme0 textarea {
+    margin: 1px;
+    padding: 2px;
+    border-color: #4C65AE;
+    background: #1D2438;
+}
 
 .theme0 option {background: #1D2438;}
 .theme0 button, .theme0 input[type=submit] {background: #4C65AE; font-family: inherit; padding: 0 3px;}
 .theme0 button:active, .theme0 input[type=submit]:active {background: #7185C1; border-color: #7185C1;}
 .theme0 textarea {border-width: 0 1px; padding: 3px;}
+.theme0 input[type=color] {padding: 0 1px;}
 
-.theme0 th, .theme0 td {border-color: transparent;}
+.theme0 table {border-color: #4C65AE;}
+.theme0 tr td {border-color: #4C65AE;}
 .theme0 th {background: #4C65AE;}
 .theme0 tr {background: #273459;}
 .theme0 tr:nth-of-type(odd) {background: #1F2A47;}
-.theme0 tr td:first-of-type {width: 300px; max-width: 300px;}
 
 .theme0 .quote .box {border-color: #405060;}
 .theme0 a {color: #4C65AE;}
@@ -50,10 +67,12 @@ body.theme1 {background: #000 url(https://www.smwcentral.net/images/background.g
     color: #99F;
 }
 
-.theme1 input, .theme1 button, .theme1 select, .theme1 textarea {border-color: #909090;}
+.theme1 input, .theme1 button, .theme1 select, .theme1 textarea {border-color: #405060;}
+.theme1 button {background: #405060;}
 
-.theme1 th, .theme1 td {border-color: #405060;}
-.theme1 th {background: transparent;}
+.theme1 table {border-color: #405060;}
+.theme1 tr td {border-color: #405060;}
+.theme1 th {background: #405060;}
 
 .theme1 .quote .box {border-color: #405060;}
 .theme1 a, .theme1 section:not(#ly-makerPreview) a:hover {color: #9F9;}
@@ -66,8 +85,10 @@ body.theme2 {background: #000 url(https://www.smwcentral.net/html/halloweenschem
 
 .theme2 h2 {background: #333;}
 .theme2 input, .theme2 button, .theme2 select, .theme2 textarea {border-color: #444;}
+.theme2 button {background: #444;}
 
-.theme2 th, .theme2 td {border-color: #000;}
+.theme2 table {border-color: #333;}
+.theme2 tr td {border-color: #333;}
 .theme2 th {background: #333;}
 
 .theme2 .quote .box {border-color: #000;}
@@ -82,8 +103,10 @@ body.theme3 {background: #000F1F url(https://www.smwcentral.net/html/nightscheme
 
 .theme3 h2 {background: #213;}
 .theme3 input, .theme3 button, .theme3 select, .theme3 textarea {border-color: #2F2F5F;}
+.theme3 button {background: #2F2F5F;}
 
-.theme3 th, .theme3 td {border-color: #000;}
+.theme3 table {border-color: #2F2F5F;}
+.theme3 tr td {border-color: #2F2F5F;}
 .theme3 th {background: #2F2F5F;}
 
 .theme3 .quote .box {border-color: #000;}
@@ -101,17 +124,20 @@ body.theme4 {
 .theme4 section {background: url(https://www.smwcentral.net/html/yischeme/green.png);}
 
 .theme4 h2 {background: url(https://www.smwcentral.net/html/yischeme/cat3.png);}
-.theme4 input, .theme4 button, .theme4 select, .theme4 textarea {border-color: #080808;}
-.theme4 button, .theme4 input[type=submit] {
+.theme4 input, .theme4 button, .theme4 select, .theme4 textarea {border-color: #457040; background: transparent;}
+.theme4 option, .theme4 optgroup {background: #000;}
+.theme4 button, .theme4 input[type=submit], .theme4 textarea {
     padding: 1px 6px;
     background: #101800;
     border: 1px solid #182808;
     border-bottom: 1px solid #000800;
     border-right: 1px solid #000800;
 }
+.theme4 textarea {background: #0A1009;}
 
-.theme4 th, .theme4 td {border-color: #000;}
-.theme4 th {background: url(https://www.smwcentral.net/html/yischeme/cat3.png);}
+.theme4 table {border-color: #457040;}
+.theme4 tr td {border-color: #457040;}
+.theme4 th {background: #457040;}
 
 .theme4 .code .box {font: 12px "Courier New", "Liberation Mono", monospace;}
 .theme4 .quote .box {border-color: #181818;}
@@ -136,8 +162,9 @@ body.theme5 {background: #000 url(https://www.smwcentral.net/html/sky2scheme/bg.
     border-image: url(https://www.smwcentral.net/html/sky2scheme/cellc.png) 1 stretch;
 }
 
-.theme5 th, .theme5 td {border-color: #000;}
-.theme5 th {background: url(https://www.smwcentral.net/html/sky2scheme/cellh.png);}
+.theme5 table {border-color: #77A9DE;}
+.theme5 tr td {border-color: #77A9DE;}
+.theme5 th {background: url(https://www.smwcentral.net/html/sky2scheme/cellh.png); border-top: 1px solid #77A9DE;}
 
 .theme5 .code .boxhead {color: #08F;}
 .theme5 .code .box {color: #08F; border-color: #08F;}
@@ -158,8 +185,10 @@ body.theme6 {background: #000 url(https://www.smwcentral.net/html/hexscheme/bg.p
     border-image: url(https://www.smwcentral.net/html/hexscheme/cellc.png) 1 stretch;
 }
 
-.theme6 th, .theme6 td {border-color: #000;}
-.theme6 th {background: url(https://www.smwcentral.net/html/hexscheme/cellh.png);}
+.theme6 table {border-color: #77A9DE;}
+.theme6 tr td {border-color: #77A9DE;}
+.theme6 th {border-top: 1px solid #77A9DE;}
+.theme6 th {background: url(https://www.smwcentral.net/html/hexscheme/cellh.png); border-top: 1px solid #77A9DE;}
 
 .theme6 .code .boxhead {color: #08F;}
 .theme6 .code .box {color: #08F; border-color: #08F;}
@@ -181,8 +210,9 @@ body.theme7 {background: #000 url(https://www.smwcentral.net/html/winterscheme/b
     border-image: url(https://www.smwcentral.net/html/winterscheme/cellc.png) 1 stretch;
 }
 
-.theme7 th, .theme7 td {border-color: #000;}
-.theme7 th {background: #57429F url(https://www.smwcentral.net/html/winterscheme/cellh.png);}
+.theme7 table {border-color: #9195C1;}
+.theme7 tr td {border-color: #9195C1;}
+.theme7 th {background: #57429F url(https://www.smwcentral.net/html/winterscheme/cellh.png); border-top: 1px solid #9195C1;}
 
 .theme7 .code .boxhead {color: #00FF80;}
 .theme7 .code .box {color: #00FF80; border: 1px dotted #00FF80;}
@@ -202,8 +232,9 @@ body.theme8 {background: #000 url(https://www.smwcentral.net/html/circuitscheme/
     border-image: url(https://www.smwcentral.net/html/circuitscheme/cellc.gif) 1 stretch;
 }
 
-.theme8 th, .theme8 td {border-color: #000;}
-.theme8 th {background: #406030 url(https://www.smwcentral.net/html/circuitscheme/cellh.gif);}
+.theme8 table {border-color: #80A070;}
+.theme8 tr td {border-color: #80A070;}
+.theme8 th {background: #406030 url(https://www.smwcentral.net/html/circuitscheme/cellh.gif); border-top: 1px solid #80A070;}
 
 .theme8 .quote .box {border-color: #000;}
 .theme8 a {color: #DEFECA; font-weight: bold;}
@@ -218,8 +249,9 @@ body.theme9 {background: #000 url(https://www.smwcentral.net/html/xmasscheme/cbg
 .theme9 h2 {background: #0B3B0B;}
 .theme9 input, .theme9 button, .theme9 select, .theme9 textarea {color: #CCC; border-color: #444;}
 
-.theme9 th, .theme9 td {border-color: #000;}
-.theme9 th {background: #0B3B0B;}
+.theme9 table {border-color: #000;}
+.theme9 tr td {border-color: #000;}
+.theme9 th {background: #0B3B0B; border: solid #000; border-width: 1px 0;}
 
 .theme9 .quote .box {border-color: #000;}
 .theme9 a {color: #F8E0E0; font-weight: bold;}
@@ -237,8 +269,9 @@ body.theme10 {background: #000 url(https://www.smwcentral.net/html/zeldascheme/b
     border-image: url(https://www.smwcentral.net/html/zeldascheme/cc.gif) 1 stretch;
 }
 
-.theme10 th, .theme10 td {border-color: #000;}
-.theme10 th {background: #6E5008 url(https://www.smwcentral.net/html/zeldascheme/ch.gif);}
+.theme10 table {border-color: #000;}
+.theme10 tr td {border-color: #000;}
+.theme10 th {background: #6E5008 url(https://www.smwcentral.net/html/zeldascheme/ch.gif); border: solid #000; border-width: 1px 0;}
 
 .theme10 .quote .box {border-color: #000;}
 .theme10 a {color: #9FD29B; font-weight: bold;}

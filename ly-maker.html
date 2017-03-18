@@ -1,485 +1,554 @@
-﻿<!DOCTYPE html><head>
-<title>Layout Maker XP - SMWC</title>
-<meta charset="UTF-8">
-<style>
-html, body {height: 100%;}
-body {
-    margin: 0;
-    background: #000;
-    font-family: Tahoma, sans-serif;
-    font-size: 10pt;
-    color: #FFF;
-}
-
-header {margin: 5px; text-align: center;}
-footer {font-size: smaller; text-align: center;}
-section:first-of-type {margin-top: 0; padding: 3px;}
-section:first-of-type h2 {margin: -3px -3px 3px;}
-section {
-    border: 1px solid #000;
-    margin: 10px;
-    min-width: 600px;
-    background: #222;
-}
-h2 {
-    font-size: inherit;
-    text-align: center;
-    margin: 0;
-    border-bottom: 1px solid #000;
-    background: #444;
-    padding: 3px;
-}
-
-input, button, select, textarea {
-    padding: 1px;
-    background: #000;
-    color: #FFF;
-    border: 1px solid #444;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-ul {list-style-type: square; margin: 0; padding-left: 20px;}
-.hoverunderspan {border-bottom: 1px dotted #FFF; cursor: help;}
-
-textarea {max-width: 100%;}
-input[readonly], input[disabled] {cursor: not-allowed;}
-input[type=checkbox] {width: auto;}
-button, input[type=submit], input[type=reset] {width: auto; padding: 1px 4px;}
-input[type=reset] {color: #AE654C !important; font-weight: bold;}
-
-table {border-collapse: collapse;}
-th, td {border: 1px solid #000; padding: 2px 3px; text-align: center;}
-th {background: #444;}
-tr td {width: 300px; max-width: 300px;}
-tr td:first-of-type {width: 200px; max-width: 200px; text-align: left;}
-.tablewrap {overflow: auto;}
-.multiinput {display: flex;}
-#postborderWidth {width: 75px;}
-
-#errors, #warnings {margin: 15px 0 0; padding: 7px; border-left: 2px solid;}
-#errors {color: #E11919; border-color: #E11919;}
-#warnings {color: #E17D19; border-color: #E17D19;}
-
-/* Custom Checkboxes (with thanks to http://code.stephenmorley.org/) */
-
-input.oldinput + label::before {display: none;}
-
-input[type=checkbox]:not(.oldinput) + label, input[type=radio]:not(.oldinput) + label {
-    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAABQCAQAAAC6oj2GAAAAAmJLR0QA/4ePzL8AAAAJcEhZcwAACxMAAAsTAQCanBgAAAAHdElNRQfgDB4ODjFqZXwxAAACyklEQVRIx9WWPU/bYBDHf/dgC9tRES8DCJUQoAwtUyXo0JGFjaEjlJdP0aESYus36J4F+hU6VFRlJTMdkBowbShpo76g2CYBPx3shDjEyUAX7hnvfL577uf/WaBgVl/Lps5qRdMkFFfnM2/m61Iw/QN7dsyxkRs/Gp/vnn9kL/StbtnL045Ju5kMmRcDnpL9Yi7n0Nk8jo8NnbXQKQEWOmtoRWoAaGV0cwP0DFD0sLu/wpAwVJLWAxIqcQN0ygkQV+l8xUsLqHg6LwXTO+ifHXL624Z1yS/v8shZkGjcbNI2blyicUOBKoJOdCMImgzzSAEfmzE68ICPjapiMYUNifLAZgqLKkoYTW1zFMHQdOUBQ9OVB+4JD4R04QFDCLBSAgIEpamk3mQFjZHBo8QQHXjgkgzxuGm7zyg4wzwKMNmmyHUi+zVFtjGhJ3J9q1vW8rhjIm3H5IHpD/hK9ovjufY2XSALBJQifZA29ztghSwWOqu0UonUp+wywwy7uCi0UsQOFxfhlB2myBDGZIMR9eyyAyyyxyQ2fzhhjWxjmnDCDg+BD2Sx+Mu3pjvOIECIwyMUF5zxkslWooQca5xxgeaCM9bINUsGJWEUsk6Zn5RZT7hjfRCEHBtU2WhxCwHi9m0O1p4Nm4IwyHNGEnfy1au/7Snm0nMd9AJGCnj0pyLnYFSxGL/Fs2BjU6KKIYwg/GaPz9Sby+QxiwwyQinSB+EjP3hKY+/UOeUjL7DQKI1COGQCxXV8FBMcIqhIHwSoA2GiinpctNFo6apDoU0euPV84vPvmUEAk9pNMuAKMw5QAghzlKlxFZ8aZeYiHiJ9cFjiPYctF/WEJQQfQT7hMJ1S4Bc8VIaAIj4kUAGfIsGNPqSvg1gf9C190P9bHzrz0KIPqTw09CGVB3VPeAi78hAa4ga5Ljy4hs6fv5p2hlnpUOB59P9wR334BwbVqyBhTLpdAAAAAElFTkSuQmCC') no-repeat;
-    margin-left: -15px;
-    padding-left: 20px;
-}
-
-input[type=checkbox]:not(.oldinput), input[type=radio]:not(.oldinput) {opacity: 0;}
-input[type=checkbox]:checked + label {background-position: 0 -32px;}
-input[type=radio]:checked + label {background-position: 0 -64px;}
-
-/* SMWC Default Layout Style */
-
-div.quote, div.code {margin-left: 40px; margin-right: 40px;}
-div.quote .boxhead, div.code .boxhead {font-size: 11px;}
-div.code .boxhead {color: #0F0;}
-div.quote .box {margin-top: 2px; padding: 3px; border: 1px solid #181818;}
-div.code pre.box {
-    margin: 2px 0 0 0;
-    padding: 3px;
-    font-family: monospace;
-    border: 1px solid #0F0;
-    color: #0F0;
-}
-
-a {color: #AAA; text-decoration: none;}
-a:hover {color: #CCC; text-decoration: underline;}
-.spoiler .spoilerInner {display: inline-block; visibility: hidden !important; padding: 0 2px;}
-.spoiler:hover .spoilerInner {visibility: visible !important;}
-.spoiler {
-    display: inline-block;
-    background-color: #000 !important;
-    color: #FFF !important;
-    border: 1px solid #FFF;
-    border-radius: 2px;
-}
-</style>
-<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAD1BMVEVldC0AAAAAuPjAmHj///5CCF4OAAAAAXRSTlMAQObYZgAAAAFiS0dEAIgFHUgAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAHdElNRQfgDAwOFjf7Dd5JAAAATElEQVQI133L0QmAQAwD0GaDprpAb4PDCYTsP5PhvB9/DKU8AgkwQTIDSoj6gNyoPnVnUDVcteGNW0N6sWJUj3WBg0hOz6/E9PsDdx4HBQ14frnV2wAAAABJRU5ErkJggg==">
-<link rel="stylesheet" href="ly-maker.css?ver=1.0">
-<script src="ly-maker.js?ver=1.0" defer></script>
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <title>Layout Maker XP - SMWC</title>
+  <meta charset="UTF-8">
+  <style>
+    html, body {height: 100%;}
+    body {
+      margin: 0;
+      background: #000;
+      font-family: Tahoma, sans-serif;
+      font-size: 10pt;
+      color: #FFF;
+    }
+    
+    header {margin: 5px; text-align: center;}
+    footer {font-size: smaller; text-align: center;}
+    section:first-of-type {margin-top: 0; padding: 3px;}
+    section:first-of-type h2 {margin: -3px -3px 3px;}
+    section {
+      border: 1px solid #000;
+      margin: 10px;
+      min-width: 600px;
+      background: #222;
+    }
+    h2 {
+      font-size: inherit;
+      text-align: center;
+      margin: 0;
+      border-bottom: 1px solid #000;
+      background: #444;
+      padding: 3px;
+    }
+    
+    input, button, select, textarea {
+      padding: 1px;
+      background: #000;
+      color: #FFF;
+      border: 1px solid #444;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    
+    .theme input, .theme button, .theme select, .theme textarea {background: #111;}
+    .theme button {background: #444;} /* This only applies to the Fallback CSS when selected as a theme. */
+    input[type=color] {padding: 0 1px; margin-right: 3px; width: 23px; flex-shrink: 0;}
+    
+    ul {list-style-type: square; margin: 0; padding-left: 20px;}
+    .hoverunderspan {border-bottom: 1px dashed #FFF; cursor: help;}
+    
+    textarea {max-width: 100%;}
+    input[readonly], input[disabled] {cursor: not-allowed;}
+    input[type=checkbox] {width: auto;}
+    button, input[type=submit], input[type=reset] {width: auto; padding: 1px 4px;}
+    input[type=reset] {color: #AE654C !important; font-weight: bold;}
+    
+    table {border-collapse: collapse; border: 1px solid #444; margin: 0;}
+    th, td {border: 0; padding: 6px 5px 7px;}
+    th {background: #444; text-align: center;}
+    td {width: 300px; max-width: 300px; border-bottom: 1px dashed #444;}
+    tr td:first-of-type {border-right: 1px solid #444; text-align: right;}
+    .tablewrap {overflow: auto; display: inline-block;}
+    .multiinput {display: flex;}
+    #postborderWidth {width: 75px;}
+    
+    #errors, #warnings {margin: 15px 0 0; padding: 7px; border-left: 2px solid;}
+    #errors {color: #E11919; border-color: #E11919;}
+    #warnings {color: #E17D19; border-color: #E17D19;}
+    
+    /* Custom Checkboxes (with thanks to http://code.stephenmorley.org/) */
+    
+    input.oldinput + label::before {display: none;}
+    
+    input[type=checkbox]:not(.oldinput) + label, input[type=radio]:not(.oldinput) + label {
+      background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAABQCAQAAAC6oj2GAAAAAmJLR0QA/4ePzL8AAAAJcEhZcwAACxMAAAsTAQCanBgAAAAHdElNRQfgDB4ODjFqZXwxAAACyklEQVRIx9WWPU/bYBDHf/dgC9tRES8DCJUQoAwtUyXo0JGFjaEjlJdP0aESYus36J4F+hU6VFRlJTMdkBowbShpo76g2CYBPx3shDjEyUAX7hnvfL577uf/WaBgVl/Lps5qRdMkFFfnM2/m61Iw/QN7dsyxkRs/Gp/vnn9kL/StbtnL045Ju5kMmRcDnpL9Yi7n0Nk8jo8NnbXQKQEWOmtoRWoAaGV0cwP0DFD0sLu/wpAwVJLWAxIqcQN0ygkQV+l8xUsLqHg6LwXTO+ifHXL624Z1yS/v8shZkGjcbNI2blyicUOBKoJOdCMImgzzSAEfmzE68ICPjapiMYUNifLAZgqLKkoYTW1zFMHQdOUBQ9OVB+4JD4R04QFDCLBSAgIEpamk3mQFjZHBo8QQHXjgkgzxuGm7zyg4wzwKMNmmyHUi+zVFtjGhJ3J9q1vW8rhjIm3H5IHpD/hK9ovjufY2XSALBJQifZA29ztghSwWOqu0UonUp+wywwy7uCi0UsQOFxfhlB2myBDGZIMR9eyyAyyyxyQ2fzhhjWxjmnDCDg+BD2Sx+Mu3pjvOIECIwyMUF5zxkslWooQca5xxgeaCM9bINUsGJWEUsk6Zn5RZT7hjfRCEHBtU2WhxCwHi9m0O1p4Nm4IwyHNGEnfy1au/7Snm0nMd9AJGCnj0pyLnYFSxGL/Fs2BjU6KKIYwg/GaPz9Sby+QxiwwyQinSB+EjP3hKY+/UOeUjL7DQKI1COGQCxXV8FBMcIqhIHwSoA2GiinpctNFo6apDoU0euPV84vPvmUEAk9pNMuAKMw5QAghzlKlxFZ8aZeYiHiJ9cFjiPYctF/WEJQQfQT7hMJ1S4Bc8VIaAIj4kUAGfIsGNPqSvg1gf9C190P9bHzrz0KIPqTw09CGVB3VPeAi78hAa4ga5Ljy4hs6fv5p2hlnpUOB59P9wR334BwbVqyBhTLpdAAAAAElFTkSuQmCC') no-repeat;
+      margin-left: -15px;
+      padding-left: 20px;
+    }
+    
+    input[type=checkbox]:not(.oldinput), input[type=radio]:not(.oldinput) {opacity: 0;}
+    input[type=checkbox]:checked + label {background-position: 0 -32px;}
+    input[type=radio]:checked + label {background-position: 0 -64px;}
+    
+    /* SMWC Default Layout Style */
+    
+    div.quote, div.code {margin-left: 40px; margin-right: 40px;}
+    div.quote .boxhead, div.code .boxhead {font-size: 11px;}
+    div.code .boxhead {color: #0F0;}
+    div.quote .box {margin-top: 2px; padding: 3px; border: 1px solid #181818;}
+    div.code pre.box {
+      margin: 2px 0 0 0;
+      padding: 3px;
+      font-family: monospace;
+      border: 1px solid #0F0;
+      color: #0F0;
+    }
+    
+    a {color: #AAA; text-decoration: none;}
+    a:hover {color: #CCC; text-decoration: underline;}
+    .spoiler .spoilerInner {display: inline-block; visibility: hidden !important; padding: 0 2px;}
+    .spoiler:hover .spoilerInner {visibility: visible !important;}
+    .spoiler {
+      display: inline-block;
+      background-color: #000 !important;
+      color: #FFF !important;
+      border: 1px solid #FFF;
+      border-radius: 2px;
+    }
+  </style>
+  <link href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAD1BMVEVldC0AAAAAuPjAmHj///5CCF4OAAAAAXRSTlMAQObYZgAAAAFiS0dEAIgFHUgAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAHdElNRQfgDAwOFjf7Dd5JAAAATElEQVQI133L0QmAQAwD0GaDprpAb4PDCYTsP5PhvB9/DKU8AgkwQTIDSoj6gNyoPnVnUDVcteGNW0N6sWJUj3WBg0hOz6/E9PsDdx4HBQ14frnV2wAAAABJRU5ErkJggg==" rel="icon" type="image/png">
+  <link href="ly-maker.css?ver=1.1" rel="stylesheet">
+  <script defer src="ly-maker.js?ver=1.1"></script>
 </head>
+
 <body class="theme1">
+  <header><img alt="Layout Maker by RanAS" src="ly-maker.jpg?ver=1.1"></header>
+  <span style="/* Dirty hacks, dirty hacks, does whatever dirt can. */"><a href="https://www.smwcentral.net" style="margin: 10px 0 0 10px; text-shadow: 0 0 3px #000;">&lt;&lt;&lt; Click here to go back to SMWCentral</a></span>
 
-<header><img src="ly-maker.jpg?ver=1.0" alt="Layout Maker by RanAS"></header>
+  <section>
+    <h2>Layout Maker XP for SMWC - v1.1</h2>
+    This is a page for generating layouts usable in SMWCentral. Using this page on mobile devices is <strong>not</strong> recommended. It's possible to use the layouts generated here in other forums but they may not display/behave properly. You'll be able to see how the layout looks against a few of the website's themes which can be selected below:<br>
+    <br>
+    <label for="themeSelector" style="font-weight: bold;">Theme:</label> <select id="themeSelector" style="width: auto;">
+      <option value="">Fallback CSS</option>
+      <option value="0">New Metro Blue</option>
+      <option selected value="1">SMWC - Default</option>
+      <optgroup label="SMWC Dated Themes">
+        <option value="2">SMWC - Halloween</option>
+        <option value="3">SMWC - Night</option>
+        <option value="4">SMWC - Yoshi's Island</option>
+        <option value="5">SMWC - Sky 2</option>
+        <option value="6">SMWC - Hex</option>
+        <option value="7">SMWC - Winter</option>
+        <option value="8">SMWC - Circuit</option>
+        <option value="9">SMWC - Christmas</option>
+        <option value="10">SMWC - Zelda</option>
+      </optgroup>
+    </select> <noscript><b>JavaScript is required.</b></noscript><br>
+    <br>
+    
+    Information on Layout Maker:<br>
+    <ul>
+      <li>Generating Mode (default) will generate the layout based on the inputs provided, Editing Mode will let you insert your own HTML to be previewed.</li>
+      <li>When manually inserting color values, they will go through a validator of sorts that will check if it uses one of these values (other values are invalid):
+      <ul>
+        <li><strong>Hexadecimal:</strong> #00FF00 or #0F0</li>
+        <li><strong>RGB:</strong> rgb(0, 255, 0)</li>
+        <li><strong>HSL:</strong> hsl(120, 100%, 50%)</li>
+        <li>Alpha values must be inserted into the "opacity" fields as percentages when available.</li>
+      </ul>
+      </li>
+      <li>If the validator fails to recognize the value, it'll use the one in the color picker box right above it which might not display/behave properly on some browsers.</li>
+      <li>The background order of visibility is, from closest to furthest: Post Box Background, Side Image, 2nd Background, Background.</li>
+      <li>If using any of the signatures generated here, <strong>please disable the signature/footer separator on Edit Profile.</strong></li>
+      <li>Report any bugs and send any suggestions to <a href="https://www.smwcentral.net/?p=profile&id=26481">RanAS</a>.</li>
+    </ul>
+    <br>
+    
+    General Layout Advice:<br>
+    <ul>
+      <li><strong>Your layout must follow <a href="https://www.smwcentral.net/?p=viewthread&t=85467">SMWC's layout rules</a> if you actually want to use it.</strong></li>
+      <li>Images need to be uploaded somewhere in order to work, local files can't be used directly. Usage of the File Bin is recommended.</li>
+      <li>A maximum of around 200px of width is personally recommended for side images. Likewise, a maximum of around 200KB of filesize is recommended for all of your layout's resources in total.</li>
+      <li>You can use <a href="https://leaverou.github.io/contrast-ratio/">this tool</a> to check the contrast ratio between your background and text. Please try to keep it close to white or black as to preserve readability.</li>
+      <li><a href="https://bin.smwcentral.net/u/26481/ly-maker-threadimg-2.png">Here's a quick explanation on what post margins/border/paddings are.</a> Basically, the margin is the area between the post and the frame and the padding is the area between the post's border and the text.</li>
+      <li>If the post doesn't occupy the entire of the post frame (there's empty space at the bottom), change the <u>min-height: ???px;</u> property on your post layout to a higher value. This problem depends on how much content is in the user's sidebar.</li>
+    </ul>
+    <br>
+    Created on Dec. 03, 2016. Last updated: Mar. 18, 2017.<br>
+    <br>
+    
+    <div class="tablewrap">
+      <table>
+        <tbody>
+          <tr><th colspan="2">Background</th></tr>
+          <tr>
+            <td>Background Color:*<br></td>
+            <td>
+              <div class="multiinput">
+                <input id="bgColor" required="" type="color" value="#102030"><input id="bgColorHex" type="text">
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Background Image (URL):<br></td>
+            <td><input id="bgImg" type="url"></td>
+          </tr>
+          <tr>
+            <td>Background Position:<br></td>
+            <td>
+              <div class="multiinput">
+                <select id="bgPos1">
+                  <option value="top">Top (default)</option>
+                  <option value="center">Center</option>
+                  <option value="bottom">Bottom</option>
+                </select>&nbsp; <select id="bgPos2">
+                  <option value="left">Left (default)</option>
+                  <option value="center">Center</option>
+                  <option value="right">Right</option>
+                </select>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Background Repeat:<br></td>
+            <td><select id="bgRepeat">
+              <option value="repeat">Horizontally and vertically (default)</option>
+              <option value="repeat-x">Horizontally</option>
+              <option value="repeat-y">Vertically</option>
+              <option value="no-repeat">Don't Repeat</option>
+              <option value="/ 100% no-repeat">Don't Repeat (stretch image to full width)</option>
+              <option value="/ cover no-repeat">Don't Repeat (stretch image to full size)</option>
+            </select></td>
+          </tr>
+          <tr>
+            <td>2nd Background Image (URL):<br></td>
+            <td><input id="bg2Img" type="url"></td>
+          </tr>
+          <tr>
+            <td>2nd Background Position:<br></td>
+            <td>
+              <div class="multiinput">
+                <select id="bg2Pos1">
+                  <option value="top">Top (default)</option>
+                  <option value="center">Center</option>
+                  <option value="bottom">Bottom</option>
+                </select>&nbsp;
+                <select id="bg2Pos2">
+                  <option value="left">Left (default)</option>
+                  <option value="center">Center</option>
+                  <option value="right">Right</option>
+                </select>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>2nd Background Repeat:<br></td>
+            <td>
+              <select id="bg2Repeat">
+                <option value="repeat">Horizontally and vertically (default)</option>
+                <option value="repeat-x">Horizontally</option>
+                <option value="repeat-y">Vertically</option>
+                <option value="no-repeat">Don't Repeat</option>
+                <option value="/ 100% no-repeat">Don't Repeat (stretch image to full width)</option>
+                <option value="/ cover no-repeat">Don't Repeat (stretch image to full size)</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td><span class="hoverunderspan" title="This is used for the minimum height property to prevent posts from not occupying all of the post frame. The generator will add 100px to this value. May not work 100% of the time due to being user-dependant.">Avatar Height:</span>*</td>
+            <td><input id="postAvatarHeight" max="150" min="0" placeholder="0" type="number"></td>
+          </tr>
+          
+          
+          <tr><th colspan="2">Post Box</th></tr>
+          <tr>
+            <td>Background Color:*<br></td>
+            <td>
+              <div class="multiinput">
+                <input id="postbgColor" required="" type="color" value="#405060">
+                <input id="postbgColorHex" type="text">
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Background Opacity (%):</td>
+            <td><input id="postbgAlpha" max="100" min="0" placeholder="100" step="any" type="number"></td>
+          </tr>
+          <tr>
+            <td>Border Type/Width (px):<br></td>
+            <td>
+              <div class="multiinput">
+                <select id="postborderType">
+                  <option value="none">None</option>
+                  <option value="solid">Solid</option>
+                  <option value="double">Double</option>
+                  <option value="dotted">Dotted</option>
+                  <option value="dashed">Dashed</option>
+                  <option value="groove">Groove</option>
+                  <option value="ridge">Ridge</option>
+                  <option value="inset">Inset</option>
+                  <option value="outset">Outset</option>
+                </select>&nbsp;<input id="postborderWidth" max="15" min="0" placeholder="0" type="number">
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td><span class="hoverunderspan" title="The higher the value, the more rounded the border will be.">Border Radius</span> (px):</td>
+            <td><input id="postborderRadius" max="50" min="0" placeholder="0" type="number"></td>
+          </tr>
+          <tr>
+            <td>Border Color:<br></td>
+            <td>
+              <div class="multiinput">
+                <input id="postborderColor" required="" type="color" value="#000000"><input id="postborderColorHex" type="text">
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td><span class="hoverunderspan" title="Margin is the area between the post box and the post's frame.">Margin</span> (px):*</td>
+            <td><input id="postboxMargin" max="75" min="5" placeholder="20" type="number"></td>
+          </tr>
+          <tr>
+            <td><span class="hoverunderspan" title="Padding is the area between the post box's border and the post's text.">Padding</span> (px):*</td>
+            <td><input id="postboxPadding" max="40" min="0" placeholder="5" type="number"></td>
+          </tr>
+          <tr>
+            <td>Text Color:<br></td>
+            <td>
+              <div class="multiinput">
+                <input id="postboxText" required="" type="color" value="#FFFFFF"><input id="postboxTextHex" type="text">
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Link Color:<br></td>
+            <td>
+              <div class="multiinput">
+                <input id="postboxLink" required="" type="color" value="#90B0F0"><input id="postboxLinkHex" type="text">
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Text Font:<br></td>
+            <td><select id="postboxFont">
+              <option value="inherit">Default</option>
+              <optgroup label="Sans-Serif">
+                <option value="Arial, Helvetica, sans-serif">Arial</option>
+                <option value="'Comic Sans MS', cursive, sans-serif">Comic Sans MS</option>
+                <option value="'Lucida Sans Unicode', 'Lucida Grande', sans-serif">Lucida Sans Unicode</option>
+                <option value="Tahoma, Geneva, sans-serif">Tahoma</option>
+                <option value="'Trebuchet MS', Helvetica, sans-serif">Trebuchet MS</option>
+                <option value="Verdana, Geneva, sans-serif">Verdana</option>
+              </optgroup>
+              <optgroup label="Serif">
+                <option value="Georgia, serif">Georgia</option>
+                <option value="'Palatino Linotype', 'Book Antiqua', Palatino, serif">Palatino Linotype</option>
+                <option value="'Times New Roman', Times, serif">Times New Roman</option>
+              </optgroup>
+              <optgroup label="Monospace">
+                <option value="'Courier New', Courier, monospace">Courier New</option>
+                <option value="'Lucida Console', Monaco, monospace">Lucida Console</option>
+              </optgroup>
+            </select></td>
+          </tr>
+          <tr>
+            <td><span class="hoverunderspan" title="Don't use crazy fonts, stick to something simple and legible.">Custom Google Font:</span></td>
+            <td>
+              <div class="multiinput">
+                <input id="postCustomFontURL" type="text">&nbsp; <select id="postCustomFontType">
+                  <option value="sans-serif">Sans-Serif</option>
+                  <option value="serif">Serif</option>
+                  <option value="monospace">Monospace</option>
+                </select>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td><span class="hoverunderspan" title="The first value is how down-shifted the text will be, the second value is how right-shifted it will be, both allow negative values. The third value is how blurry it'll be.">Text Shadow Width</span> (px):</td>
+            <td>
+              <div class="multiinput">
+                <input id="postboxShadow1" max="15" min="-15" placeholder="0" type="number">&nbsp;
+                <input id="postboxShadow2" max="15" min="-15" placeholder="0" type="number">&nbsp;
+                <input id="postboxShadow3" max="40" min="0" placeholder="0" type="number" value="3">
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Text Shadow Color:<br></td>
+            <td>
+              <div class="multiinput">
+                <input id="postboxShadow" required="" type="color" value="#000000">
+                <input id="postboxShadowHex" type="text">
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Signature Type:<br></td>
+            <td><select id="sigbox">
+              <option value="0">Signature Box</option>
+              <option value="1">Post Box</option>
+              <option value="2">Post Box (use horizontal linebreak)</option>
+            </select></td>
+          </tr>
+          
+          
+          <tr><th colspan="2">Side Image</th></tr>
+          <tr>
+            <td>Image URL:</td>
+            <td><input id="sideimgUrl" type="url"></td>
+          </tr>
+          <tr>
+            <td><span class="hoverunderspan" title="This will put an empty space on the right side of the layout this many pixels wide so the text doesn't show in front of the side image.">Image Width</span> (px):</td>
+            <td><input id="sideimgWidth" max="1000" min="1" type="number"></td>
+          </tr>
+          <tr>
+            <td>Image Position:<br></td>
+            <td><select id="sideimgPos">
+              <option value="top">Top</option>
+              <option selected value="center">Center (default)</option>
+              <option value="bottom">Bottom</option>
+            </select></td>
+          </tr>
+          
+          
+          <tr>
+            <th colspan="2">Quote/Code Boxes</th>
+          </tr>
+          <tr>
+            <td>Quote Box Background Color:*<br></td>
+            <td>
+              <div class="multiinput">
+                <input id="quoteboxColor" required="" type="color" value="#000000">
+                <input id="quoteboxColorHex" type="text">
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Code Box Background Color:*<br></td>
+            <td>
+              <div class="multiinput">
+                <input id="codeboxColor" required="" type="color" value="#000000">
+                <input id="codeboxColorHex" type="text">
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Background Opacity (%):</td>
+            <td><input id="quoteboxAlpha" max="100" min="0" placeholder="0" step="any" type="number" value="40"></td>
+          </tr>
+          <tr>
+            <td>Border Type/Width (px):<br></td>
+            <td>
+              <div class="multiinput">
+                <select id="quoteborderType">
+                  <option value="none">None</option>
+                  <option selected value="solid">Solid</option>
+                  <option value="double">Double</option>
+                  <option value="dotted">Dotted</option>
+                  <option value="dashed">Dashed</option>
+                  <option value="groove">Groove</option>
+                  <option value="ridge">Ridge</option>
+                  <option value="inset">Inset</option>
+                  <option value="outset">Outset</option>
+                </select>
+                &nbsp;<input id="quoteborderWidth" max="15" min="0" placeholder="0" type="number" value="1">
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td><span class="hoverunderspan" title="The higher the value, the more rounded the border will be.">Border Radius</span> (px):</td>
+            <td><input id="quoteborderRadius" max="50" min="0" placeholder="0" type="number"></td>
+          </tr>
+          <tr>
+            <td>Quote Box Border Color:<br></td>
+            <td>
+              <div class="multiinput">
+                <input id="quoteborderColor" required="" type="color" value="#FFFFFF">
+                <input id="quoteborderColorHex" type="text">
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Code Box Border Color:<br></td>
+            <td>
+              <div class="multiinput">
+                <input id="codeborderColor" required="" type="color" value="#FFFFFF">
+                <input id="codeborderColorHex" type="text">
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td><span class="hoverunderspan" title="Padding is the value between the quote/code boxes' borders and the text in it.">Padding</span> (px):*</td>
+            <td><input id="quoteboxPadding" max="30" min="0" placeholder="3" type="number"></td>
+          </tr>
+          
+          
+          <tr><th colspan="2">Layout Name*</th></tr>
+          <tr>
+            <td>
+              <small>
+                Only use alphanumeric characters!<br>
+                First character must be a letter:
+              </small>
+            </td>
+            <td><input id="layoutname" type="text"></td>
+          </tr>
+          <tr>
+            <td colspan="2" style="text-align: center;"><small>*Required field (if no value is specified a generic value will be generated in its place)</small></td>
+          </tr>
+        </tbody>
+      </table>
+    </div><br>
+    
+    <br>
+    <input id="experimentalHSL" type="checkbox"><label for="experimentalHSL">Enable HSL to RGB color converter.</label><br>
+    <input id="generateInline" type="checkbox"><label for="generateInline">Generate no linebreaks in the CSS code.</label><br>
+    <input id="ignoreErrors" type="checkbox"><label for="ignoreErrors">Ignore most warnings and errors. <b>(not recommended)</b></label><br>
+    <input id="exportCSSfile" type="checkbox"><label for="exportCSSfile">Export and format CSS to an external file.</label> <a id="externalCSSanchor" target="_blank"></a><br>
+    <br>
+    <button id="previewButton" onclick="javascript:makeLayout();">Preview/Generate Layout</button> <button id="editingButton" onclick="javascript:switchMode();">Switch to Editing Mode</button> <noscript><b>JavaScript is required.</b></noscript><br>
+    <br>
+    
+    <strong>Layout Header:</strong><br>
+    <textarea id="ly-makerHeader" readonly rows="13"></textarea><br>
+    <button onclick="javascript:document.getElementById('ly-makerHeader').select();">Select All</button><br>
+    <br>
+    
+    <strong>Layout Footer:</strong><br>
+    <textarea id="ly-makerFooter" readonly rows="2"></textarea><br>
+    <button onclick="javascript:document.getElementById('ly-makerFooter').select();">Select All</button>
 
-<span style="/* Dirty hacks, dirty hacks, does whatever dirt can. */"><a href="https://www.smwcentral.net" style="margin: 10px 0 0 10px; text-shadow: 0 0 3px #000;">&lt;&lt;&lt; Click here to go back to SMWCentral</a></span>
-<section>
-<h2>Layout Maker XP for SMWC - v1.0</h2>
-This is a page for generating layouts usable in SMWCentral. Using this page on mobile devices is <strong>not</strong> recommended. It's possible to use the layouts generated here in other forums but they may not display/behave properly. You'll be able to see how the layout looks against a few of the website's themes which can be selected below:<br><br>
-
-<label for="themeSelector" style="font-weight: bold;">Theme:</label>
-<select id="themeSelector" style="width: auto;">
-<option value="">Fallback CSS</option>
-<option value="0">New Metro Blue</option>
-<option value="1" selected>SMWC - Default</option>
-<optgroup label="SMWC Dated Themes">
-<option value="2">SMWC - Halloween</option>
-<option value="3">SMWC - Night</option>
-<option value="4">SMWC - Yoshi's Island</option>
-<option value="5">SMWC - Sky 2</option>
-<option value="6">SMWC - Hex</option>
-<option value="7">SMWC - Winter</option>
-<option value="8">SMWC - Circuit</option>
-<option value="9">SMWC - Christmas</option>
-<option value="10">SMWC - Zelda</option>
-</optgroup>
-</select><noscript> <b>JavaScript is required.</b></noscript><br><br>
-
-Information on Layout Maker:<br>
-<ul>
-<li>Generating Mode (default) will generate the layout based on the inputs provided, Editing Mode will let you insert your own HTML to be previewed.</li>
-<li>When manually inserting color values, they will go through a validator of sorts that will check if it uses one of these values (other values are invalid): 
-<ul>
-<li><strong>Hexadecimal:</strong> #00FF00 or #0F0</li>
-<li><strong>RGB:</strong> rgb(0, 255, 0)</li>
-<li><strong>HSL:</strong> hsl(120, 100%, 50%)</li>
-<li>Alpha values must be inserted into the "opacity" fields as percentages when available.</li>
-</ul>
-</li>
-<li>If the validator fails to recognize the value, it'll use the one in the color picker box right above it which might not display/behave properly on some browsers.</li>
-<li>The background order of visibility is, from closest to furthest: Post Box Background, Side Image, 2nd Background, Background.</li>
-<li>If using any of the signatures generated here, <b>please disable the signature/footer separator on Edit Profile.</b></li>
-<li>Report any bugs and send any suggestions to <a href="https://www.smwcentral.net/?p=profile&id=26481">RanAS</a>.</li>
-</ul><br>
-
-General Layout Advice:<br>
-<ul>
-<li><strong>Your layout must follow <a href="https://www.smwcentral.net/?p=viewthread&t=85467">SMWC's layout rules</a> if you actually want to use it.</strong></li>
-<li>Images need to be uploaded somewhere in order to work, local files can't be used directly. Usage of the File Bin is recommended.</li>
-<li>A maximum of around 200px of width is personally recommended for side images. Likewise, a maximum of around 200KB of filesize is recommended for all of your layout's resources in total.</li>
-<li>You can use <a href="https://leaverou.github.io/contrast-ratio/">this tool</a> to check the contrast ratio between your background and text. Please try to keep it close to white or black as to preserve readability.</li>
-<li><a href="https://bin.smwcentral.net/u/26481/ly-maker-threadimg-2.png">Here's a quick explanation on what post margins/border/paddings are.</a> Basically, the margin is the area between the post and the frame and the padding is the area between the post's border and the text.</li>
-<li>If the post doesn't occupy the entire of the post frame (there's empty space at the bottom), change the <u>min-height: ???px;</u> property on your post layout to a higher value. This problem depends on how much content is in the user's sidebar.</li>
-</ul><br>
-
-Created on Dec. 03, 2016. Last updated: Jan. 19, 2017.<br><br>
-
-<div class="tablewrap"><table><tbody>
-
-<tr>
-<th colspan="2">Background</th>
-</tr>
-<tr>
-<td>Background Color:*<br>
-</td>
-<td><input type="color" id="bgColor" value="#102030" required><br><br><input type="text" id="bgColorHex"></td>
-</tr>
-<tr>
-<td>Background Image (URL):<br>
-</td>
-<td><input type="url" id="bgImg"></td>
-</tr>
-<tr>
-<td>Background Position:<br>
-</td>
-<td><div class="multiinput"><select id="bgPos1">
-<option value="top">Top (default)</option>
-<option value="center">Center</option>
-<option value="bottom">Bottom</option>
-</select>&nbsp;
-<select id="bgPos2">
-<option value="left">Left (default)</option>
-<option value="center">Center</option>
-<option value="right">Right</option>
-</select></div></td>
-</tr>
-<tr>
-<td>Background Repeat:<br>
-</td>
-<td><select id="bgRepeat">
-<option value="repeat">Horizontally and vertically (default)</option>
-<option value="repeat-x">Horizontally</option>
-<option value="repeat-y">Vertically</option>
-<option value="no-repeat">Don't Repeat</option>
-<option value="/ 100% no-repeat">Don't Repeat (stretch image to full width)</option>
-<option value="/ cover no-repeat">Don't Repeat (stretch image to full size)</option>
-</select></div></td>
-</tr>
-<tr>
-<td>2nd Background Image (URL):<br></td>
-<td><input type="url" id="bg2Img"></td>
-</tr>
-<tr>
-<td>2nd Background Position:<br>
-</td>
-<td><div class="multiinput"><select id="bg2Pos1">
-<option value="top">Top (default)</option>
-<option value="center">Center</option>
-<option value="bottom">Bottom</option>
-</select>&nbsp;
-<select id="bg2Pos2">
-<option value="left">Left (default)</option>
-<option value="center">Center</option>
-<option value="right">Right</option>
-</select></div></td>
-</tr>
-<tr>
-<td>2nd Background Repeat:<br>
-</td>
-<td><select id="bg2Repeat">
-<option value="repeat">Horizontally and vertically (default)</option>
-<option value="repeat-x">Horizontally</option>
-<option value="repeat-y">Vertically</option>
-<option value="no-repeat">Don't Repeat</option>
-<option value="/ 100% no-repeat">Don't Repeat (stretch image to full width)</option>
-<option value="/ cover no-repeat">Don't Repeat (stretch image to full size)</option>
-</select></div></td>
-</tr>
-<tr>
-<td><span class="hoverunderspan" title="This is used for the minimum height property to prevent posts from not occupying all of the post frame. The generator will add 100px to this value. May not work 100% of the time due to being user-dependant.">Avatar Height:</span>*</td>
-<td><input type="number" id="postAvatarHeight" min="0" max="150" placeholder="0"></td>
-</tr>
-
-<tr>
-<th colspan="2">Post Box</th>
-</tr>
-<tr>
-<td>Background Color:*<br>
-</td>
-<td><input type="color" id="postbgColor" value="#405060" required><br><br><input type="text" id="postbgColorHex"></td>
-</tr>
-<tr>
-<td>Background Opacity (%):</td>
-<td><input type="number" id="postbgAlpha" step="any" min="0" max="100"  placeholder="100"></td>
-</tr>
-<tr>
-<td>Border Type/Width (px):<br>
-</td>
-<td><div class="multiinput"><select id="postborderType">
-<option value="none">None</option>
-<option value="solid">Solid</option>
-<option value="double">Double</option>
-<option value="dotted">Dotted</option>
-<option value="dashed">Dashed</option>
-<option value="groove">Groove</option>
-<option value="ridge">Ridge</option>
-<option value="inset">Inset</option>
-<option value="outset">Outset</option>
-</select>&nbsp;<input type="number" id="postborderWidth" min="0" max="15" placeholder="0"></div></td>
-</tr>
-<tr>
-<td><span class="hoverunderspan" title="The higher the value, the more rounded the border will be.">Border Radius</span> (px):</td>
-<td><input type="number" id="postborderRadius" min="0" max="50" placeholder="0"></td>
-</tr>
-<tr>
-<td>Border Color:<br>
-</td>
-<td><input type="color" id="postborderColor" value="#000000" required><br><br><input type="text" id="postborderColorHex"></td>
-</tr>
-<tr>
-<td><span class="hoverunderspan" title="Margin is the area between the post box and the post's frame.">Margin</span> (px):*</td>
-<td><input type="number" id="postboxMargin" min="5" max="75" placeholder="20"></td>
-</tr>
-<tr>
-<td><span class="hoverunderspan" title="Padding is the area between the post box's border and the post's text.">Padding</span> (px):*</td>
-<td><input type="number" id="postboxPadding" min="0" max="40" placeholder="5"></td>
-</tr>
-<tr>
-<td>Text Color:<br>
-</td>
-<td><input type="color" id="postboxText" value="#FFFFFF" required><br><br><input type="text" id="postboxTextHex"></td>
-</tr>
-<tr>
-<td>Link Color:<br>
-</td>
-<td><input type="color" id="postboxLink" value="#90B0F0" required><br><br><input type="text" id="postboxLinkHex"></td>
-</tr>
-<tr>
-<td>Text Font:<br>
-</td>
-<td><select id="postboxFont">
-<option value="inherit">Default</option>
-<optgroup label="Sans-Serif">
-<option value="Arial, Helvetica, sans-serif">Arial</option>
-<option value="'Comic Sans MS', cursive, sans-serif">Comic Sans MS</option>
-<option value="'Lucida Sans Unicode', 'Lucida Grande', sans-serif">Lucida Sans Unicode</option>
-<option value="Tahoma, Geneva, sans-serif">Tahoma</option>
-<option value="'Trebuchet MS', Helvetica, sans-serif">Trebuchet MS</option>
-<option value="Verdana, Geneva, sans-serif">Verdana</option>
-</optgroup>
-<optgroup label="Serif">
-<option value="Georgia, serif">Georgia</option>
-<option value="'Palatino Linotype', 'Book Antiqua', Palatino, serif">Palatino Linotype</option>
-<option value="'Times New Roman', Times, serif">Times New Roman</option>
-</optgroup>
-<optgroup label="Monospace">
-<option value="'Courier New', Courier, monospace">Courier New</option>
-<option value="'Lucida Console', Monaco, monospace">Lucida Console</option>
-</optgroup>
-</select></td>
-</tr>
-<tr>
-<td><span class="hoverunderspan" title="Don't use crazy fonts, stick to something simple and legible.">Custom Google Font:</span></td>
-<td><div class="multiinput"><input type="text" id="postCustomFontURL">&nbsp;
-<select id="postCustomFontType">
-<option value="sans-serif">Sans-Serif</option>
-<option value="serif">Serif</option>
-<option value="monospace">Monospace</option>
-</select></div></td>
-</tr>
-<tr>
-<td><span class="hoverunderspan" title="The first value is how down-shifted the text will be, the second value is how right-shifted it will be, both allow negative values. The third value is how blurry it'll be.">Text Shadow Width</span> (px):
-</td>
-<td><div class="multiinput"><input type="number" id="postboxShadow1" placeholder="0" min="-15" max="15">
-&nbsp;<input type="number" id="postboxShadow2" placeholder="0" min="-15" max="15">&nbsp;
-<input type="number" id="postboxShadow3" placeholder="0" value="3" min="0" max="40"></div></td>
-</tr>
-<tr>
-<td>Text Shadow Color:<br>
-</td>
-<td><input type="color" id="postboxShadow" value="#000000" required><br><br><input type="text" id="postboxShadowHex"></td>
-</tr>
-<tr>
-<td>Signature Type:<br>
-</td>
-<td><select id="sigbox">
-<option value="0">Signature Box</option>
-<option value="1">Post Box</option>
-<option value="2">Post Box (use horizontal linebreak)</option>
-</select></td>
-</tr>
-
-<tr>
-<th colspan="2">Side Image</th>
-</tr>
-<tr>
-<td>Image URL:</td>
-<td><input type="url" id="sideimgUrl"></td>
-</tr>
-<tr>
-<td><span class="hoverunderspan" title="This will put an empty space on the right side of the layout this many pixels wide so the text doesn't show in front of the side image.">Image Width</span> (px):</td>
-<td><input type="number" id="sideimgWidth" min="1" max="1000"></td>
-</tr>
-<tr>
-<td>Image Position:<br>
-</td>
-<td><select id="sideimgPos">
-<option value="top">Top</option>
-<option value="center" selected>Center (default)</option>
-<option value="bottom">Bottom</option>
-</select></td>
-</tr>
-
-<tr>
-<th colspan="2">Quote/Code Boxes</th>
-</tr>
-<tr>
-<td>Quote Box Background Color:*<br>
-</td>
-<td><input type="color" id="quoteboxColor" value="#000000" required><br><br><input type="text" id="quoteboxColorHex"></td>
-</tr>
-<tr>
-<td>Code Box Background Color:*<br>
-</td>
-<td><input type="color" id="codeboxColor" value="#000000" required><br><br><input type="text" id="codeboxColorHex"></td>
-</tr>
-<tr>
-<td>Background Opacity (%):</td>
-<td><input type="number" id="quoteboxAlpha" step="any" min="0" max="100" placeholder="0" value="40"></td>
-</tr>
-<tr>
-<td>Border Type/Width (px):<br>
-</td>
-<td><div class="multiinput"><select id="quoteborderType">
-<option value="none">None</option>
-<option value="solid" selected>Solid</option>
-<option value="double">Double</option>
-<option value="dotted">Dotted</option>
-<option value="dashed">Dashed</option>
-<option value="groove">Groove</option>
-<option value="ridge">Ridge</option>
-<option value="inset">Inset</option>
-<option value="outset">Outset</option>
-</select>&nbsp;<input type="number" id="quoteborderWidth" value="1" min="0" max="15" placeholder="0"></div></td>
-</tr>
-<tr>
-<td><span class="hoverunderspan" title="The higher the value, the more rounded the border will be.">Border Radius</span> (px):</td>
-<td><input type="number" id="quoteborderRadius" min="0" max="50" placeholder="0"></td>
-</tr>
-<tr>
-<td>Quote Box Border Color:<br>
-</td>
-<td><input type="color" id="quoteborderColor" value="#FFFFFF" required><br><br><input type="text" id="quoteborderColorHex"></td>
-</tr>
-<tr>
-<td>Code Box Border Color:<br>
-</td>
-<td><input type="color" id="codeborderColor" value="#FFFFFF" required><br><br><input type="text" id="codeborderColorHex"></td>
-</tr>
-<tr>
-<td><span class="hoverunderspan" title="Padding is the value between the quote/code boxes' borders and the text in it.">Padding</span> (px):*</td>
-<td><input type="number" id="quoteboxPadding" min="0" max="30" placeholder="3"></td>
-</tr>
-
-<tr><th colspan="2">Layout Name*</th></tr>
-<tr>
-<td><small>Only use alphanumeric characters, first character must be a letter:</small></td>
-<td><input type="text" id="layoutname"></td>
-</tr>
-<tr><td colspan="2">
-<small>*Required field (if no value is specified a generic value will be generated in its place)</small>
-</td></tr>
-
-
-</tbody></table></div><br>
-
-<input type="checkbox" id="experimentalHSL"><label for="experimentalHSL">Enable HSL to RGB color converter.</label><br>
-
-<input type="checkbox" id="generateInline"><label for="generateInline">Generate no linebreaks in the CSS code.</label><br>
-
-<input type="checkbox" id="ignoreErrors"><label for="ignoreErrors">Ignore most warnings and errors. <b>(not recommended)</b></label><br>
-
-<input type="checkbox" id="exportCSSfile"><label for="exportCSSfile">Export and format CSS to an external file. <b>(experimental)</b></label> <a id="externalCSSanchor" target="_blank"></a><br><br>
-
-<button onclick="javascript:makeLayout();" id="previewButton">Preview/Generate Layout</button> 
-<button onclick="javascript:switchMode();" id="editingButton">Switch to Editing Mode</button> 
-<noscript> <b>JavaScript is required.</b></noscript><br><br>
-
-<strong>Layout Header:</strong><br>
-<textarea id="ly-makerHeader" rows="13" readonly></textarea><br>
-<button onclick="javascript:document.getElementById('ly-makerHeader').select();">Select All</button><br><br>
-
-<strong>Layout Footer:</strong><br>
-<textarea id="ly-makerFooter" rows="2" readonly></textarea><br>
-<button onclick="javascript:document.getElementById('ly-makerFooter').select();">Select All</button>
-
-<div id="errors" style="display: none;"></div>
-<div id="warnings" style="display: none;"></div>
-
-</section>
-
-<section id="ly-makerPreview">
-<h2>Layout Preview</h2>
-
-<div style="padding: 1px 4px;">
-
-<div class="quote">
-<span class="boxhead">Originally posted by Sample quote</span>
-<div class="box">
-<div class="quote">
-<span class="boxhead">Originally posted by Sample nested quote</span>
-<div class="box">
-<div class="spoiler"><div class="spoilerInner">Sample spoiler</div></div><br>Sample text
-</div>
-</div><br><a href="#">Sample link</a><br>Sample quote
-</div>
-</div><br>
-<div class="code"><span class="boxhead">Code</span><pre class="box">Sample code</pre></div><br>
-<a href="#">Sample link</a><br>Sample post with <b>bold</b> and <i>italics</i>.
-
-</div>
-
-</section>
-
-<footer><a href="https://www.smwcentral.net/"><img src="https://www.smwcentral.net/link/88x31.gif" border="0" alt="SMW Central" title="SMW Central"></a><br>
-This page is not part of SMWCentral.<br>
-Coded using HTML5/CSS and JavaScript.<br><br></footer>
-
-</body></html>
+    <div id="errors" style="display: none;"></div>
+    <div id="warnings" style="display: none;"></div>
+  </section>
+  
+  <section id="ly-makerPreview">
+    <h2>Layout Preview</h2>
+    <div style="padding: 1px 4px;">
+      <div class="quote">
+        <span class="boxhead">Originally posted by Sample quote</span>
+        <div class="box">
+          <div class="quote">
+            <span class="boxhead">Originally posted by Sample nested quote</span>
+            <div class="box">
+              <div class="spoiler"><div class="spoilerInner">Sample spoiler</div></div>
+              <br>
+              Sample text
+            </div>
+          </div>
+          <br>
+          <a href="#">Sample link</a><br>
+          Sample quote
+        </div>
+      </div>
+      <br>
+      <div class="code">
+        <span class="boxhead">Code</span>
+        <pre class="box">Sample code</pre>
+      </div>
+      <br>
+      <a href="#">Sample link</a><br>
+      Sample post with <b>bold</b> and <i>italics</i>.
+    </div>
+  </section>
+  
+  <footer>
+    <a href="https://www.smwcentral.net/"><img alt="SMW Central" border="0" src="https://www.smwcentral.net/link/88x31.gif" title="SMW Central"></a><br>
+    This page is not part of SMWCentral.<br>
+    Coded using HTML5/CSS and JavaScript.<br>
+    <br>
+  </footer>
+</body>
+</html>
