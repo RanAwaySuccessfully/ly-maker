@@ -61,7 +61,8 @@
     tr td:first-of-type {border-right: 1px solid #444; text-align: right;}
     .tablewrap {overflow: auto; display: inline-block;}
     .multiinput {display: flex;}
-    #postborderWidth {width: 75px;}
+    #postborderWidth, #quoteborderWidth {width: 75px;}
+    #postCustomFontType {width: initial;}
     
     #errors, #warnings {margin: 15px 0 0; padding: 7px; border-left: 2px solid;}
     #errors {color: #E11919; border-color: #E11919;}
@@ -108,8 +109,8 @@
     }
   </style>
   <link href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAD1BMVEVldC0AAAAAuPjAmHj///5CCF4OAAAAAXRSTlMAQObYZgAAAAFiS0dEAIgFHUgAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAHdElNRQfgDAwOFjf7Dd5JAAAATElEQVQI133L0QmAQAwD0GaDprpAb4PDCYTsP5PhvB9/DKU8AgkwQTIDSoj6gNyoPnVnUDVcteGNW0N6sWJUj3WBg0hOz6/E9PsDdx4HBQ14frnV2wAAAABJRU5ErkJggg==" rel="icon" type="image/png">
-  <link href="ly-maker.css?ver=1.1" rel="stylesheet">
-  <script defer src="ly-maker.js?ver=1.1"></script>
+  <link href="ly-maker.css?ver=1.2" rel="stylesheet">
+  <script defer src="ly-maker.js?ver=1.2"></script>
 </head>
 
 <body class="theme1">
@@ -117,13 +118,17 @@
   <span style="/* Dirty hacks, dirty hacks, does whatever dirt can. */"><a href="https://www.smwcentral.net" style="margin: 10px 0 0 10px; text-shadow: 0 0 3px #000;">&lt;&lt;&lt; Click here to go back to SMWCentral</a></span>
 
   <section>
-    <h2>Layout Maker XP for SMWC - v1.1</h2>
+    <h2>Layout Maker XP for SMWC - v1.2</h2>
     This is a page for generating layouts usable in SMWCentral. Using this page on mobile devices is <strong>not</strong> recommended. It's possible to use the layouts generated here in other forums but they may not display/behave properly. You'll be able to see how the layout looks against a few of the website's themes which can be selected below:<br>
     <br>
     <label for="themeSelector" style="font-weight: bold;">Theme:</label> <select id="themeSelector" style="width: auto;">
       <option value="">Fallback CSS</option>
       <option value="0">New Metro Blue</option>
       <option selected value="1">SMWC - Default</option>
+      <option value="20">SMWC - C3 Modern Mario</option>
+      <option value="21">SMWC - C3 8-Bit</option>
+      <option value="22">SMWC - C3 Peach's Castle</option>
+      <option value="23">SMWC - Rain</option>
       <optgroup label="SMWC Dated Themes">
         <option value="2">SMWC - Halloween</option>
         <option value="3">SMWC - Night</option>
@@ -134,6 +139,13 @@
         <option value="8">SMWC - Circuit</option>
         <option value="9">SMWC - Christmas</option>
         <option value="10">SMWC - Zelda</option>
+        <option value="11">SMWC - Doomsday</option>
+        <option value="12">SMWC - Cave</option>
+        <option value="13">SMWC - Glassified</option>
+        <option value="14 t14r">SMWC - Social Red</option>
+        <option value="14 t14g">SMWC - Social Green</option>
+        <option value="14 t14b">SMWC - Social Blue</option>
+        <option value="15">SMWC - Pokey</option>
       </optgroup>
     </select> <noscript><b>JavaScript is required.</b></noscript><br>
     <br>
@@ -152,6 +164,7 @@
       <li>If the validator fails to recognize the value, it'll use the one in the color picker box right above it which might not display/behave properly on some browsers.</li>
       <li>The background order of visibility is, from closest to furthest: Post Box Background, Side Image, 2nd Background, Background.</li>
       <li>If using any of the signatures generated here, <strong>please disable the signature/footer separator on Edit Profile.</strong></li>
+      <li>The default layout generated here (by not changing any settings) is for previewing/testing purposes only, please don't actually use it.</li>
       <li>Report any bugs and send any suggestions to <a href="https://www.smwcentral.net/?p=profile&id=26481">RanAS</a>.</li>
     </ul>
     <br>
@@ -166,7 +179,7 @@
       <li>If the post doesn't occupy the entire of the post frame (there's empty space at the bottom), change the <u>min-height: ???px;</u> property on your post layout to a higher value. This problem depends on how much content is in the user's sidebar.</li>
     </ul>
     <br>
-    Created on Dec. 03, 2016. Last updated: Mar. 18, 2017.<br>
+    Created on Dec. 03, 2016. Last updated: June 06, 2017.<br>
     <br>
     
     <div class="tablewrap">
@@ -356,7 +369,7 @@
             </td>
           </tr>
           <tr>
-            <td><span class="hoverunderspan" title="The first value is how down-shifted the text will be, the second value is how right-shifted it will be, both allow negative values. The third value is how blurry it'll be.">Text Shadow Width</span> (px):</td>
+            <td><span class="hoverunderspan" title="The first value is how right-shifted the text will be, the second value is how down-shifted it will be, both allow negative values. The third value is how blurry it'll be.">Text Shadow Width</span> (px):</td>
             <td>
               <div class="multiinput">
                 <input id="postboxShadow1" max="15" min="-15" placeholder="0" type="number">&nbsp;
@@ -380,6 +393,7 @@
               <option value="0">Signature Box</option>
               <option value="1">Post Box</option>
               <option value="2">Post Box (use horizontal linebreak)</option>
+              <option value="3">None</option>
             </select></td>
           </tr>
           

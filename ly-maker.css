@@ -50,7 +50,6 @@ body.theme1 {background: #000 url(https://www.smwcentral.net/images/background.g
     background: url(https://www.smwcentral.net/images/text_background.png);
 }
 
-
 .theme1 h2 {margin: 0 -3px; border-bottom: 3px double #405060; padding: 5px; background: transparent;}
 
 .theme1 section:first-of-type {
@@ -77,6 +76,135 @@ body.theme1 {background: #000 url(https://www.smwcentral.net/images/background.g
 .theme1 .quote .box {border-color: #405060;}
 .theme1 a, .theme1 section:not(#ly-makerPreview) a:hover {color: #9F9;}
 
+
+/* C3 - Modern Mario */
+
+body.theme20 {background: #000 url(https://www.smwcentral.net/html/c3s2016/images/background.gif);}
+.theme20 section {
+    border: 3px double #405060;
+    background: url(https://www.smwcentral.net/images/text_background.png);
+}
+
+.theme20 h2 {margin: 0 -3px; border-bottom: 3px double #405060; padding: 5px; background: transparent;}
+
+.theme20 section:first-of-type {
+    padding: 5px;
+    border: 7px solid;
+    border-image: url('data:image/gif;base64,R0lGODlhHQAdAOMNABgAIDAYOEAwUGBQYHhwcIiAgJiQiKigkLCwmNDIqODYsOjouPj4wP///////////yH5BAEKAA8ALAAAAAAdAB0AAAT+EKW11CmSss23xVN1YQhyCWSprmd6DoZRHIQAy4Vx6Tltx7PaoFcQEom8oo1ozCmHx9FB1qTaBljsNcvtbrOCgFgMAIzPAfO4jC4jCtzAY06v29/xBAI3kNv/dHp8AQt7Mn2AiYVAfYUzBoiJf45TfQxvM5GSdZcFmQGXg5t2oZ6WJod+o3OXU3CgbwcHmqudsqd8AKt0pXAAram7rKivtrOqtbHHpZDIo8x9FiO0o9KmARcE2gO6wtnbAAUC4+Pdu+LkAgAZIiAaHRwf7B8u4ikrLPYqL0A+N548AvrrZ4RHwRECPR18ApBhFE+uqjzx0qUimIphzrBBQ0ajmjUDACIAADs=') 7 round;
+}
+.theme20 section:first-of-type h2 {
+    padding-top: 0;
+    margin: 0 -12px 5px;
+    border: 7px solid;
+    border-image: url('data:image/gif;base64,R0lGODlhHQAdAOMNABgAIDAYOEAwUGBQYHhwcIiAgJiQiKigkLCwmNDIqODYsOjouPj4wP///////////yH5BAEKAA8ALAAAAAAdAB0AAARt8MlJq7046827/2AojmRpnmiqrmzrvnAszxiSLItyFDbO/MCfjnfL7XgIxE6ATDqfy+ZyYDAUDgQB1Vow7LxdrLZ6zQ7CBTMaDU5r0equ+7w+HqxxvHbA5+/7gIF/fQIBhoYAAIeLAYqHiYyJEQA7') 7 round;
+    border-top: none;
+    color: #99F;
+}
+
+.theme20 input, .theme20 button, .theme20 select, .theme20 textarea {border-color: #405060;}
+.theme20 button {background: #405060;}
+
+.theme20 table {border-color: #405060;}
+.theme20 tr td {border-color: #405060;}
+.theme20 th {background: #405060;}
+
+.theme20 .quote .box {border-color: #405060;}
+.theme20 a, .theme20 section:not(#ly-makerPreview) a:hover {color: #9F9;}
+
+
+/* C3 - 8-Bit */
+
+body.theme21 {background: #000 url(https://www.smwcentral.net/html/c3theme8bit/images/background_.png);}
+.theme21 section {
+    border: 3px double #405060;
+    background: url(https://www.smwcentral.net/images/text_background.png);
+}
+
+.theme21 h2 {margin: 0 -3px; border-bottom: 3px double #405060; padding: 5px; background: transparent;}
+
+.theme21 section:first-of-type {
+    padding: 5px;
+    border: 7px solid;
+    border-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAVAgMAAADUeU0FAAAADFBMVEVlLWcAAACfZwD3z7+bPv5VAAAAAXRSTlMAQObYZgAAAAFiS0dEAIgFHUgAAAAJcEhZcwAACxMAAAsTAQCanBgAAAAHdElNRQfhAxMNKDRg8SlqAAAAL0lEQVQI12N494SB750Dw7unoXEg6vn/fyDq2ap1CMH3QCX/4BRMAx4KuwZibQAAZC1JoXI/MkAAAAAASUVORK5CYII=') 7 round;
+}
+.theme21 section:first-of-type h2 {
+    padding-top: 0;
+    margin: 0 -12px 5px;
+    border: 7px solid;
+    border-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAVAgMAAADUeU0FAAAADFBMVEVlLWcAAACfZwD3z7+bPv5VAAAAAXRSTlMAQObYZgAAAAFiS0dEAIgFHUgAAAAJcEhZcwAACxMAAAsTAQCanBgAAAAHdElNRQfhAxMNKQhWhWSsAAAAKUlEQVQI12NgoDl494SB750Dw7unoXEg6vn/fyDq2ap1CMH3QCX/YBQAmhkaD49SFFUAAAAASUVORK5CYII=') 7 round;
+    border-top: none;
+    color: #99F;
+}
+
+.theme21 input, .theme21 button, .theme21 select, .theme21 textarea {border-color: #405060;}
+.theme21 button {background: #405060;}
+
+.theme21 table {border-color: #405060;}
+.theme21 tr td {border-color: #405060;}
+.theme21 th {background: #405060;}
+
+.theme21 .quote .box {border-color: #405060;}
+.theme21 a, .theme21 section:not(#ly-makerPreview) a:hover {color: #9F9;}
+
+
+/* C3 - Peach's Castle */
+
+body.theme22 {
+    background: #000 url(https://www.smwcentral.net/html/c3w2017/images/bgrepeat.png);
+    font-family: trebuchet ms, tahoma, sans-serif;
+}
+.theme22 section {
+    border: 3px double #405060;
+    background: rgba(0,0,0,0.76);
+    box-shadow: inset 0px 1px 5px black;
+}
+
+.theme22 h2 {margin: 0 -3px; border-bottom: 3px double #405060; padding: 5px; background: transparent;}
+
+.theme22 section:first-of-type {
+    padding: 5px;
+    border: 7px solid;
+    border-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYBAMAAAASWSDLAAAAGFBMVEVhcABRFSZ/ITu1L1XiaI3/h6v/xtf///9rXkrQAAAAAXRSTlMAQObYZgAAAAFiS0dEAIgFHUgAAAAJcEhZcwAADsEAAA7BAbiRa+0AAAAHdElNRQfhAxMNOgQ+3GkVAAAAgklEQVQY073PQQrCMBCF4blCxAs0YFzXIq6lo1mLVNdSkpygnes779GFJ3A2Hz8MEyK7IQbVGKEkK9dma4VysfVRzSr0sM/0tgX62tyr1grl0PruOZwnKPvXKfgxhRJ+RlLxkz40tS2gP9Yx4NFmBs02MmhetoC5jDxA7+XGoH/6zxerVkQJf2ApZwAAAABJRU5ErkJggg==') 8 repeat;
+}
+.theme22 section:first-of-type h2 {
+    padding-top: 0;
+    margin: 0 -12px 5px;
+    border: 7px solid;
+    border-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYBAMAAAASWSDLAAAAGFBMVEVhcABRFSZ/ITu1L1XiaI3/h6v/xtf///9rXkrQAAAAAXRSTlMAQObYZgAAAAFiS0dEAIgFHUgAAAAJcEhZcwAADsEAAA7BAbiRa+0AAAAHdElNRQfhAxMNOhO9D+zSAAAAVklEQVQY02NgGGZAyFhJ0MVFSQlEM6iVpzqml5elgWgG8/KywLTy8jQQDeSUJ4aGl5eCaKCyZEMXl7Q0EM2gmm6oGGxsGgqiGUTCjASBhrmAaAZBJAAAnwEYuRDPPX4AAAAASUVORK5CYII=') 8 repeat;
+    border-top: none;
+    color: #99F;
+}
+
+.theme22 input, .theme22 button, .theme22 select, .theme22 textarea {border-color: #405060;}
+.theme22 button {background: #405060;}
+
+.theme22 table {border-color: #405060;}
+.theme22 tr td {border-color: #405060;}
+.theme22 th {background: #405060;}
+
+.theme22 .quote .box {border-color: #405060;}
+.theme22 a, .theme22 section:not(#ly-makerPreview) a:hover {color: #FFB7E7; text-shadow: 0px 1px #C32C87;}
+
+
+/* Rain */
+
+body.theme23 {background: #14192A url(https://www.smwcentral.net/html/rainscheme/rainbg.jpg);}
+.theme23 section {background: hsla(225, 40%, 18%, 0.7);}
+
+.theme23 h2 {background: hsla(225, 30%, 35%, 0.65);}
+.theme23 input, .theme23 button, .theme23 select, .theme23 textarea {border-color: #347;}
+.theme23 button {background: #347;}
+
+.theme23 table {border-color: #313D60;}
+.theme23 tr td {border-color: #313D60;}
+.theme23 th {background: #313D60;}
+
+.theme23 .quote .box {border-color: #000;}
+.theme23 a {color: hsl(225, 50%, 65%); font-weight: bold;}
+.theme23 section:not(#ly-makerPreview) a:hover {color: hsl(225, 50%, 90%);}
+
+
+/* NOTE: DATED THEMES GO AHEAD OF THIS CSS COMMENT - PUT ALL RECENT THEMES BEFORE THIS LINE */
 
 /* Halloween */
 
@@ -276,3 +404,130 @@ body.theme10 {background: #000 url(https://www.smwcentral.net/html/zeldascheme/b
 .theme10 .quote .box {border-color: #000;}
 .theme10 a {color: #9FD29B; font-weight: bold;}
 .theme10 section:not(#ly-makerPreview) a:hover {color: #B8DECB;}
+
+
+/* Doomsday */
+
+body.theme11 {background: #000 url(https://www.smwcentral.net/html/doomsdayscheme/bg.png);}
+.theme11 section {background: #404038;}
+
+.theme11 h2 {background: #403812 url(https://www.smwcentral.net/html/doomsdayscheme/cellh.png);}
+.theme11 input, .theme11 button, .theme11 select, .theme11 textarea {
+    border-color: #403020;
+    color: #DEF;
+    border-image: url(https://www.smwcentral.net/html/doomsdayscheme/cellc.png) 1 stretch;
+}
+
+.theme11 table {border-color: #5C5850;}
+.theme11 tr td {border-color: #5C5850;}
+.theme11 th {background: #403812 url(https://www.smwcentral.net/html/doomsdayscheme/cellh.png); border-top: 1px solid #5C5850;}
+
+.theme11 .code .boxhead {color: #CCCCBB;}
+.theme11 .code .box {border: 1px solid #CCCCBB; color: #CCCCBB;}
+.theme11 .quote .box {border-color: #000;}
+.theme11 a {color: #E0E0BC; font-weight: bold;}
+.theme11 section:not(#ly-makerPreview) a:hover {color: #CCCA9F;}
+
+
+/* Cave */
+
+body.theme12 {background: #000 url(https://www.smwcentral.net/html/cavescheme/bg.png);}
+.theme12 section {background: #322;}
+
+.theme12 h2 {background: #403812 url(https://www.smwcentral.net/html/cavescheme/cellh.png);}
+.theme12 input, .theme12 button, .theme12 select, .theme12 textarea {
+    border-color: #000;
+    color: #DEF;
+    border-image: url(https://www.smwcentral.net/html/cavescheme/cellc.png) 1 stretch;
+}
+
+.theme12 table {border-color: #C2715D;}
+.theme12 tr td {border-color: #C2715D;}
+.theme12 th {background: #403812 url(https://www.smwcentral.net/html/cavescheme/cellh.png); border-top: 1px solid #C2715D;}
+
+.theme12 .code .boxhead {color: #0CA;}
+.theme12 .code .box {border: 1px solid #0CA; color: #0CA;}
+.theme12 .quote .box {border-color: #000;}
+.theme12 a {color: #0CA; font-weight: bold;}
+.theme12 section:not(#ly-makerPreview) a:hover {color: #0EC;}
+
+
+/* Glassified */
+
+body.theme13 {background: #000 url(https://www.smwcentral.net/html/glassifiedscheme/bg.png);}
+.theme13 section {background: url(https://www.smwcentral.net/html/glassifiedscheme/td3.png); text-shadow: 1px 1px 2px #000;}
+
+.theme13 h2 {background: url(https://www.smwcentral.net/html/glassifiedscheme/grad2.png);}
+.theme13 input, .theme13 button, .theme13 select, .theme13 textarea {
+    border: 2px solid #981020;
+    color: #C0EFBC;
+}
+
+.theme13 table {border-color: #981020;}
+.theme13 tr td {border-color: #981020;}
+.theme13 th {background: #981020; border-top: 1px solid #981020;}
+
+.theme13 .code .boxhead {color: #66CC66; text-shadow: 0px 0px 5px #FFCC55;}
+.theme13 .code .box {
+    font-family: 'Courier New', 'Liberation Mono', monospace;
+    border: 2px ridge #426821;
+    color: #559955;
+}
+.theme13 .quote .box {border-color: #000;}
+.theme13 a {color: #FCC; font-weight: bold;}
+.theme13 section:not(#ly-makerPreview) a:hover {color: #FFF;}
+
+
+/* Social (Red, Green, Blue) */
+
+body.theme14 {color: #000;}
+.t14r {background: #FFF url(https://www.smwcentral.net/html/socialredscheme/red.png) repeat-x;}
+.t14g {background: #FFF url(https://www.smwcentral.net/html/socialgreenscheme/bg.png) repeat-x;}
+.t14b {background: #FFF url(https://www.smwcentral.net/html/socialbluescheme/menubackg.png) repeat-x;}
+
+.theme14 section {background: url(https://www.smwcentral.net/html/socialbluescheme/td3.png);}
+
+.theme14 h2 {background: url(https://www.smwcentral.net/html/socialbluescheme/grad2.png);}
+.theme14 input, .theme14 button, .theme14 select, .theme14 textarea {
+    color: #000;
+    background: #DDD;
+    border-color: #000;
+}
+
+.theme14 table {border-color: #000;}
+.theme14 tr td {border-color: #000;}
+.theme14 th {background: url(https://www.smwcentral.net/html/socialbluescheme/grad2.png); border-top: 1px solid #000; border-bottom: 1px solid #000;}
+
+.theme14 .code .boxhead {color: #575;}
+.theme14 .code .box {border: 1px solid #082211; color: #575;}
+.theme14 .quote .box {border-color: #000;}
+
+.t14r a {color: #503D3D; font-weight: bold;}
+.t14r section:not(#ly-makerPreview) a:hover {color: #493838;}
+.t14g a {color: #3D503D; font-weight: bold;}
+.t14g section:not(#ly-makerPreview) a:hover {color: #384938;}
+.t14b a {color: #3D3D50; font-weight: bold;}
+.t14b section:not(#ly-makerPreview) a:hover {color: #383849;}
+
+
+/* Pokey */
+
+body.theme15 {background: #C87830 url(https://www.smwcentral.net/html/pokeyscheme/pokeybackground.png);}
+.theme15 section {background: #915837;}
+
+.theme15 h2 {background: #403812 url(https://www.smwcentral.net/html/pokeyscheme/topbar2.png);}
+.theme15 input, .theme15 button, .theme15 select, .theme15 textarea {
+    border-color: #000;
+    color: #DEF;
+    border-image: url(https://www.smwcentral.net/html/pokeyscheme/topbar2.png) 1 stretch;
+}
+
+.theme15 table {border-color: #AB8D63;}
+.theme15 tr td {border-color: #AB8D63;}
+.theme15 th {background: #403812 url(https://www.smwcentral.net/html/pokeyscheme/topbar2.png); border-top: 1px solid #AB8D63;}
+
+.theme15 .code .boxhead {color: #DBB07D;}
+.theme15 .code .box {border: 1px solid #DBB07D; color: #DBB07D;}
+.theme15 .quote .box {border-color: #000;}
+.theme15 a {color: #E58639; font-weight: bold;}
+.theme15 section:not(#ly-makerPreview) a:hover {color: #FFF;}

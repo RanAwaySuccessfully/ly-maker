@@ -185,6 +185,7 @@ function makeLayout() {
     if (sigbox == 0) {var layoutfooter = "</div><div class=\"" + layoutname + "_post\" style=\"margin-top: " + postboxMargin + ";\">SIGNATURE TEXT HERE.</div></div>";}
     if (sigbox == 1) {var layoutfooter = "<br>--------------------<br>SIGNATURE TEXT HERE.</div></div>";}
     if (sigbox == 2) {var layoutfooter = "<br><hr>SIGNATURE TEXT HERE.</div></div>";}
+    if (sigbox == 3) {var layoutfooter = "</div></div>";}
 //  Step 8 - Merging Everything:
     var layoutheader = "<style>\n" + postCustomFontURL + "." + layoutname + "_bg {" + defactoBg + "padding: " + 
     postboxMargin + "; font-family: " + postboxFont + "; min-height: " + postAvatarHeight + ";}\n" + "." + layoutname + "_post {background: " + postbgColorHex + 
