@@ -19,7 +19,7 @@
     section:first-of-type h2 {margin: -3px -3px 3px;}
     section {
       border: 1px solid #000;
-      margin: 10px;
+      margin: 9px;
       min-width: 600px;
       background: #222;
     }
@@ -40,27 +40,27 @@
       width: 100%;
       box-sizing: border-box;
     }
+    input {padding: 2px;}
     
-    .theme input, .theme button, .theme select, .theme textarea {background: #111;}
-    .theme button {background: #444;} /* This only applies to the Fallback CSS when selected as a theme. */
-    input[type=color] {padding: 0 1px; margin-right: 3px; width: 23px; flex-shrink: 0;}
+    .theme input, .theme button, .theme select, .theme textarea {background: #111;} /* This only applies to the Fallback CSS when selected as a theme. */
+    input[type=color] {padding: 0 1px; margin-right: 3px; width: 21px; height: 21px; flex-shrink: 0;}
     
     ul {list-style-type: square; margin: 0; padding-left: 20px;}
     .hoverunderspan {border-bottom: 1px dashed #FFF; cursor: help;}
     
+    form {display: inline;}
     textarea {max-width: 100%;}
     input[readonly], input[disabled] {cursor: not-allowed;}
     input[type=checkbox] {width: auto;}
-    button, input[type=submit], input[type=reset] {width: auto; padding: 1px 4px;}
-    input[type=reset] {color: #AE654C !important; font-weight: bold;}
+    button, input[type=submit], input[type=reset] {font-weight: bold; width: auto; padding: 2px 4px;}
     
     table {border-collapse: collapse; border: 1px solid #444; margin: 0;}
     th, td {border: 0; padding: 6px 5px 7px;}
-    th {background: #444; text-align: center;}
+    th {background: #444;}
     td {width: 300px; max-width: 300px; border-bottom: 1px dashed #444;}
     tr td:first-of-type {border-right: 1px solid #444; text-align: right;}
     .tablewrap {overflow: auto; display: inline-block;}
-    .multiinput {display: flex;}
+    .multiinput {display: flex; align-items: flex-start;}
     #postborderWidth, #quoteborderWidth {width: 75px;}
     #postCustomFontType {width: initial;}
     
@@ -109,21 +109,21 @@
     }
   </style>
   <link href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAD1BMVEVldC0AAAAAuPjAmHj///5CCF4OAAAAAXRSTlMAQObYZgAAAAFiS0dEAIgFHUgAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAHdElNRQfgDAwOFjf7Dd5JAAAATElEQVQI133L0QmAQAwD0GaDprpAb4PDCYTsP5PhvB9/DKU8AgkwQTIDSoj6gNyoPnVnUDVcteGNW0N6sWJUj3WBg0hOz6/E9PsDdx4HBQ14frnV2wAAAABJRU5ErkJggg==" rel="icon" type="image/png">
-  <link href="ly-maker.css?ver=1.2" rel="stylesheet">
-  <script defer src="ly-maker.js?ver=1.2"></script>
+  <link href="ly-maker.css?ver=1.3" rel="stylesheet">
+  <script defer src="ly-maker.js?ver=1.3"></script>
 </head>
 
 <body class="theme1">
-  <header><img alt="Layout Maker by RanAS" src="ly-maker.jpg?ver=1.1"></header>
+  <header><img alt="Layout Maker by RanAS" src="ly-maker.jpg?ver=1.3"></header>
   <span style="/* Dirty hacks, dirty hacks, does whatever dirt can. */"><a href="https://www.smwcentral.net" style="margin: 10px 0 0 10px; text-shadow: 0 0 3px #000;">&lt;&lt;&lt; Click here to go back to SMWCentral</a></span>
 
   <section>
-    <h2>Layout Maker XP for SMWC - v1.2</h2>
+    <h2>Layout Maker XP for SMWC - v1.3</h2>
     This is a page for generating layouts usable in SMWCentral. Using this page on mobile devices is <strong>not</strong> recommended. It's possible to use the layouts generated here in other forums but they may not display/behave properly. You'll be able to see how the layout looks against a few of the website's themes which can be selected below:<br>
     <br>
     <label for="themeSelector" style="font-weight: bold;">Theme:</label> <select id="themeSelector" style="width: auto;">
       <option value="">Fallback CSS</option>
-      <option value="0">New Metro Blue</option>
+      <option value="0">Layout Maker XP</option>
       <option selected value="1">SMWC - Default</option>
       <option value="20">SMWC - C3 Modern Mario</option>
       <option value="21">SMWC - C3 8-Bit</option>
@@ -145,7 +145,6 @@
         <option value="14 t14r">SMWC - Social Red</option>
         <option value="14 t14g">SMWC - Social Green</option>
         <option value="14 t14b">SMWC - Social Blue</option>
-        <option value="15">SMWC - Pokey</option>
       </optgroup>
     </select> <noscript><b>JavaScript is required.</b></noscript><br>
     <br>
@@ -153,15 +152,15 @@
     Information on Layout Maker:<br>
     <ul>
       <li>Generating Mode (default) will generate the layout based on the inputs provided, Editing Mode will let you insert your own HTML to be previewed.</li>
-      <li>When manually inserting color values, they will go through a validator of sorts that will check if it uses one of these values (other values are invalid):
+      <li>When manually inserting color values, they will go through a validator of sorts that will check if it uses one of these formats (other formats are invalid):
       <ul>
         <li><strong>Hexadecimal:</strong> #00FF00 or #0F0</li>
         <li><strong>RGB:</strong> rgb(0, 255, 0)</li>
         <li><strong>HSL:</strong> hsl(120, 100%, 50%)</li>
-        <li>Alpha values must be inserted into the "opacity" fields as percentages when available.</li>
+        <li>Alpha values must be inserted into the "opacity" fields as percentages, when available.</li>
       </ul>
       </li>
-      <li>If the validator fails to recognize the value, it'll use the one in the color picker box right above it which might not display/behave properly on some browsers.</li>
+      <li>If the validator fails to recognize the value, it'll use the one in the color picker box right next to it which might not display/behave properly on some older web browsers.</li>
       <li>The background order of visibility is, from closest to furthest: Post Box Background, Side Image, 2nd Background, Background.</li>
       <li>If using any of the signatures generated here, <strong>please disable the signature/footer separator on Edit Profile.</strong></li>
       <li>The default layout generated here (by not changing any settings) is for previewing/testing purposes only, please don't actually use it.</li>
@@ -174,15 +173,15 @@
       <li><strong>Your layout must follow <a href="https://www.smwcentral.net/?p=viewthread&t=85467">SMWC's layout rules</a> if you actually want to use it.</strong></li>
       <li>Images need to be uploaded somewhere in order to work, local files can't be used directly. Usage of the File Bin is recommended.</li>
       <li>A maximum of around 200px of width is personally recommended for side images. Likewise, a maximum of around 200KB of filesize is recommended for all of your layout's resources in total.</li>
-      <li>You can use <a href="https://leaverou.github.io/contrast-ratio/">this tool</a> to check the contrast ratio between your background and text. Please try to keep it close to white or black as to preserve readability.</li>
+      <li>You can use <a href="https://leaverou.github.io/contrast-ratio/">this tool</a> to check the contrast ratio between your background and text. Please try to keep your layout's text color close to white or black as to preserve readability.</li>
       <li><a href="https://bin.smwcentral.net/u/26481/ly-maker-threadimg-2.png">Here's a quick explanation on what post margins/border/paddings are.</a> Basically, the margin is the area between the post and the frame and the padding is the area between the post's border and the text.</li>
       <li>If the post doesn't occupy the entire of the post frame (there's empty space at the bottom), change the <u>min-height: ???px;</u> property on your post layout to a higher value. This problem depends on how much content is in the user's sidebar.</li>
     </ul>
     <br>
-    Created on Dec. 03, 2016. Last updated: June 06, 2017.<br>
+    Created on December 03, 2016. Last updated: October 04, 2017.<br>
     <br>
     
-    <div class="tablewrap">
+    <form action="javascript:;"><div class="tablewrap">
       <table>
         <tbody>
           <tr><th colspan="2">Background</th></tr>
@@ -260,7 +259,7 @@
             </td>
           </tr>
           <tr>
-            <td><span class="hoverunderspan" title="This is used for the minimum height property to prevent posts from not occupying all of the post frame. The generator will add 100px to this value. May not work 100% of the time due to being user-dependant.">Avatar Height:</span>*</td>
+            <td><span class="hoverunderspan" title="This is used for the minimum height property to prevent posts from not occupying all of the post frame. The generator will add 100px to this value. This may not work 100% of the time due to being user-dependant.">Avatar Height:</span>*</td>
             <td><input id="postAvatarHeight" max="150" min="0" placeholder="0" type="number"></td>
           </tr>
           
@@ -369,7 +368,7 @@
             </td>
           </tr>
           <tr>
-            <td><span class="hoverunderspan" title="The first value is how right-shifted the text will be, the second value is how down-shifted it will be, both allow negative values. The third value is how blurry it'll be.">Text Shadow Width</span> (px):</td>
+            <td><span class="hoverunderspan" title="The first value is how right-shifted the text will be and the second value is how down-shifted it will be, both allow negative values. The third value is how blurry it'll be.">Text Shadow Width</span> (px):</td>
             <td>
               <div class="multiinput">
                 <input id="postboxShadow1" max="15" min="-15" placeholder="0" type="number">&nbsp;
@@ -500,6 +499,14 @@
             <td><input id="layoutname" type="text"></td>
           </tr>
           <tr>
+            <td>
+              <small>
+                Click this button to reset all values inserted above:
+              </small>
+            </td>
+            <td><input type="reset" id="resetButton" value="Reset All Values" onclick="javascript:resetInputs();"></td>
+          </tr>
+          <tr>
             <td colspan="2" style="text-align: center;"><small>*Required field (if no value is specified a generic value will be generated in its place)</small></td>
           </tr>
         </tbody>
@@ -509,10 +516,10 @@
     <br>
     <input id="experimentalHSL" type="checkbox"><label for="experimentalHSL">Enable HSL to RGB color converter.</label><br>
     <input id="generateInline" type="checkbox"><label for="generateInline">Generate no linebreaks in the CSS code.</label><br>
-    <input id="ignoreErrors" type="checkbox"><label for="ignoreErrors">Ignore most warnings and errors. <b>(not recommended)</b></label><br>
+    <input id="ignoreErrors" type="checkbox"><label for="ignoreErrors">Ignore most warnings and errors. <strong>(not recommended)</strong></label><br>
     <input id="exportCSSfile" type="checkbox"><label for="exportCSSfile">Export and format CSS to an external file.</label> <a id="externalCSSanchor" target="_blank"></a><br>
     <br>
-    <button id="previewButton" onclick="javascript:makeLayout();">Preview/Generate Layout</button> <button id="editingButton" onclick="javascript:switchMode();">Switch to Editing Mode</button> <noscript><b>JavaScript is required.</b></noscript><br>
+    <button id="generateButton" onclick="javascript:makeLayout();">Generate Layout</button></form> <button id="previewButton" onclick="javascript:previewLayout();" style="display: none;">Preview Layout</button> <button id="switchButton" onclick="javascript:switchMode();">Switch Modes</button> <strong>- Currently <span id="currentModeText"><noscript>disabled. Layout Maker XP needs JavaScript enabled in order to work.</noscript></span></strong><br>
     <br>
     
     <strong>Layout Header:</strong><br>

@@ -1,11 +1,21 @@
 "use strict";
 document.getElementById("themeSelector").onchange = function() {themeChange();};
+(function () {
+    document.getElementById("currentModeText").innerHTML = "in <u>Generating Mode</u>";
+})();
 function themeChange() {
     var num = document.getElementById("themeSelector").value;
     document.getElementsByTagName("body")[0].className = "theme" + num;
 }
+function resetInputs() {
+    if (!confirm("This action will reset the values in all input fields except for the Layout Header and Footer.")) {
+        document.getElementById("resetButton").disabled = 'disabled';
+        setTimeout(clearData, 10);
+    }
+}
 function clearData() {
-    document.getElementById("ly-makerPreview").innerHTML = "<div style=\"padding: 1px 4px;\"><div class=\"quote\"><span class=\"boxhead\">Originally posted by Sample quote</span>" + 
+    document.getElementById("ly-makerPreview").innerHTML = "<h2>Layout Preview</h2>" + 
+    "<div style=\"padding: 1px 4px;\"><div class=\"quote\"><span class=\"boxhead\">Originally posted by Sample quote</span>" + 
     "<div class=\"box\"><div class=\"quote\"><span class=\"boxhead\">Originally posted by Sample nested quote</span><div class=\"box\"><div class=\"spoiler\">" + 
     "<div class=\"spoilerInner\">Sample spoiler</div></div><br>Sample text</div></div><br><a href=\"#\">Sample link</a><br>Sample quote</div></div><br><div class=\"code\">" + 
     "<span class=\"boxhead\">Code</span><pre class=\"box\">Sample code</pre></div><br><a href=\"#\">Sample link</a><br>Sample post with <b>bold</b> and <i>italics</i>.</div>";
@@ -13,21 +23,22 @@ function clearData() {
     document.getElementById("warnings").innerHTML = "";
     document.getElementById("errors").style.display = "none";
     document.getElementById("warnings").style.display = "none";
+    document.getElementById("resetButton").disabled = "";
 }
 function switchMode() {
     if (document.getElementById("ly-makerHeader").readOnly === true) {
         document.getElementById("ly-makerHeader").readOnly = false;
         document.getElementById("ly-makerFooter").readOnly = false;
-        document.getElementById("previewButton").setAttribute("onclick","previewLayout()");
-        document.getElementById("previewButton").innerHTML = "Preview Layout";
-        document.getElementById("editingButton").innerHTML = "Switch to Generating Mode";
+        document.getElementById("generateButton").style.display = "none";
+        document.getElementById("previewButton").style.display = "";
+        document.getElementById("currentModeText").innerHTML = "in <u>Editing Mode</u>";
     } else if (document.getElementById("ly-makerHeader").readOnly === false) {
         alert("You're now in Generating Mode, clicking the preview button at this time will remove the content in the Layout Header and Footer boxes.");
         document.getElementById("ly-makerHeader").readOnly = true;
         document.getElementById("ly-makerFooter").readOnly = true;
-        document.getElementById("previewButton").setAttribute("onclick","makeLayout()");
-        document.getElementById("previewButton").innerHTML = "Preview/Generate Layout";
-        document.getElementById("editingButton").innerHTML = "Switch to Editing Mode";
+        document.getElementById("generateButton").style.display = "";
+        document.getElementById("previewButton").style.display = "none";
+        document.getElementById("currentModeText").innerHTML = "in <u>Generating Mode</u>";
     }
 }
 function previewLayout() {
@@ -37,8 +48,10 @@ function previewLayout() {
     layoutheader = layoutheader.replace(/<(iframe|script|meta)>(.*)<\/\1>/ig, "");
     layoutfooter = layoutfooter.replace(/<(iframe|script|meta)>(.*)<\/\1>/ig, "");
     var layouttester = layoutheader + layoutfooter;
-    var ly1 = layouttester.match(/<(div|style)/ig).length;
-    var ly2 = layouttester.match(/<\/(div|style)/ig).length;
+    var ly1 = layouttester.match(/<(div|style)/ig);
+    var ly2 = layouttester.match(/<\/(div|style)/ig);
+    if (!ly1) {ly1 = 0;} else {ly1 = ly1.length;}
+    if (!ly2) {ly2 = 0;} else {ly2 = ly2.length;}
     if (ly1 > ly2) {warningSystem("There's " + (ly1 - ly2) + " more opening tag(s) (ex. &lt;div&gt;) than closing tag(s) (ex. &lt;/div&gt;).");}
     if (ly1 < ly2) {warningSystem("There's " + Math.abs(ly1 - ly2) + " more closing tag(s) (ex. &lt;/div&gt;) than opening tag(s) (ex. &lt;div&gt;).");}
     document.getElementById("ly-makerPreview").innerHTML = "<h2>Layout Preview</h2>" + layoutheader + 
@@ -130,12 +143,12 @@ function makeLayout() {
         if (sideimgWidth > 200) {warningSystem("The side image's width has a very high value. It's recommended to use values near or below 200px.");}
         if (postborderWidth > 7) {warningSystem("The post box border has a very high value. Make sure it doesn't occupy too much unnecessary space.");}
         if (quoteborderWidth > 7) {warningSystem("The quote/code box border has a very high value. Make sure it doesn't occupy too much unnecessary space.");}
-        if (Math.abs(postboxShadow1) > 5||Math.abs(postboxShadow2) > 5) {warningSystem("The text shadow has a very high offset value. Make sure it doesn't obstruct or interfere with nearby text.");}
+        if (Math.abs(postboxShadow1) > 5||Math.abs(postboxShadow2) > 5) {warningSystem("The text shadow has a very high offset value. Make sure it doesn't obstruct or interfere with the nearby text.");}
         if (postboxShadow3 > 20) {warningSystem("The text shadow has a very high blur value. The text shadow opacity reduces signficantly with more blur, try using lower values.");}
         var url1 = bgImg.match(/(^[A-Z]:\\)|(^file:\/\/)/);
         var url2 = bg2Img.match(/(^[A-Z]:\\)|(^file:\/\/)/);
         var url3 = sideimgUrl.match(/(^[A-Z]:\\)|(^file:\/\/)/);
-        if (url1||url2||url3) {warningSystem("You can't link to images on your computer. Well, you <i>can</i> but no one will be able to see it. You can upload images to the File Bin instead.");}
+        if (url1||url2||url3) {warningSystem("You can't link to images on your computer. Well, you <em>can</em> but no one will be able to see it. You can upload images to the File Bin instead.");}
     }
 //  Step 2 - Let's Organize These Colors:
     if (!postbgAlpha) {postbgAlpha = 100;}
@@ -244,7 +257,7 @@ function colorParser(colorPickerValue, colorValue, alpha, experimentalHSL, ignor
     colorValue = colorValue.toString();
     if (!colorValue.match(/^#[A-F,0-9]{3}$|^#[A-F,0-9]{6}$|^rgb\(\d\d?\d?, ?\d\d?\d?, ?\d\d?\d?\)$|^hsl\(\d\d?\d?, ?\d\d?\d?%, ?\d\d?\d?%\)$/i)) {colorValue = colorPickerValue;}
     // If an alpha value doesn't exist, there's no need to convert it to RGBA/HSLA.
-    if (alpha) {
+    if (alpha||experimentalHSL) {
         if (colorValue.match(/^hsl\(\d\d?\d?, ?\d\d?\d?%, ?\d\d?\d?%\)$/i)) {
             if (!experimentalHSL) {
                 colorValue = colorValue.replace(")", ", " + (alpha / 100) + ")");
@@ -260,6 +273,7 @@ function colorParser(colorPickerValue, colorValue, alpha, experimentalHSL, ignor
             colorValue = hslToRgb(hsl1, hsl2, hsl3);
             // The external formula assumes all values are in a range of 0 through 1 which is just dumb.
         }
+        if (!alpha) {return colorValue;} // Prevents this function from proceeding if we only have experimentalHSL and not alpha.
         if (colorValue.match(/^#[A-F,0-9]{3}$/i)) {
             var hex1 = colorValue.substring(1, 2);
             var hex2 = colorValue.substring(2, 3);
