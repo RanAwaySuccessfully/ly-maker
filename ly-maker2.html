@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <title>Layout Maker XP 2</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <link href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAE9SURBVDhPhZI9ioNgEIb3HFoEwbDayBoWNaJoWLC28gDRLoVok3ME1FSBEPEQdnayjXbpcgwLEXQHM1l/sj9P9Tkzz+fr4Es35Xq95nn+2QOH2+2GjQcTYb1eMwzzNoKmacuysN0zCEEQ8Dyv67okSe89sizDI1yRZRkOjQXXdQmCYFl2v9/HcZwkieM44IAZRREOzSI1TQOj+NB1ZVlCKhCOxyOWZsKMoijuQhiGWPpbsG0b1rBarS6XC5Z+E6qqEkVREARN00iSbNsWGz8KaZpSFKWqqqIocIBg2OiZC77vL5dL2OZ9rXVdY+PBRDAMAxLDNDie52F1yiCcTieO4+53z2KMGYTdbgc7geibzcY0zY8HUDyfzzj0LMAbYDOgfQMh4a/BobGw3W4Xi8XrE7DWw+GAQ7OP/p+u+wIpBDP7j6eb9AAAAABJRU5ErkJggg==" rel="icon" type="image/png">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+  <link href="ly-maker2.css?ver=1.1" rel="stylesheet">
+  <script src="ly-maker2.js?ver=1.1" defer></script>
+  <script src="ly-maker-rhsl.js?ver=1.1"></script>
+</head>
+
+<body>
+  <header><img alt="Layout Maker 2" width="510" height="178" src="ly-maker2.jpg"></header>
+
+  <section>
+    <h2>Layout Maker XP 2</h2>
+    <p><a href="https://www.smwcentral.net">&lt;&lt;&lt; Click here to go back to SMWCentral</a></p>
+    
+    <p>This is a tool that generates layouts usable in SMWCentral (they can be used elsewhere, but they may not display correctly). Any changes to the layout are instantly shown on the layout preview window. <strong>Your layout must follow <a href="https://www.smwcentral.net/?p=cms&page=1417699-site-wide-general-behavior-rules-and-guidelines">SMWC's layout rules</a> if you actually want to use it.</strong> If you use any of the signatures generated here, you should disable the signature/footer separator in Edit Profile.</p>
+    
+    <p>Make sure your layout's colors aren't eye-searing by checking them in this <a href="https://leaverou.github.io/contrast-ratio/">contrast ratio tool</a>. When manually inserting color values, they must be in either of these formats: #00FF00 or #0F0 / rgb(0, 255, 0) / hsl(120, 100%, 50%). Transparency (alpha) values should be inserted into the neighboring opacity fields as percentages (from 0 to 100), when available.</p>
+    
+    <p>If the post doesn't occupy the entire of the post frame (there's empty space at the bottom), change the <u>min-height: ???px;</u> property in your post layout to a higher value.</p>
+    
+    <p>Created on November 13, 2017. Last updated: January 13, 2018.</p>
+    
+    <div id="maincontainer">
+      <div id="mainmakerwindow">
+        <noscript style="display: block; padding: 200px 0; text-align: center;">Layout Maker requires JavaScript.</noscript><script>(function () {document.getElementById("mainmakerwindow").innerHTML = '<img src="ly-maker2-animation.png" style="padding: 200px 325px;">';})();</script>
+      </div>
+      <hr class="windowdivider">
+      <div id="optionstoolbar" style="visibility: hidden;">
+        <div class="toolicon"><img src="ly-maker2-size-tool.png" onclick="optionsToggle(0);"><div class="tooltip">Size Tool</div></div>
+        <div class="toolicon"><img src="ly-maker2-settings-tool.png" onclick="optionsToggle(1);"><div class="tooltip">Layout Properties</div></div>
+        <div class="toolicon"><img src="ly-maker2-color-tool.png" onclick="optionsToggle(2);"><div class="tooltip">Color Tool</div></div>
+        <div class="toolicon"><img src="ly-maker2-border-tool.png" onclick="optionsToggle(3);"><div class="tooltip">Border Tool</div></div>
+        <div class="toolicon"><img src="ly-maker2-background-tool.png" onclick="optionsToggle(4);"><div class="tooltip">Background Tool</div></div>
+        <div class="toolicon"><img src="ly-maker2-font-tool.png" onclick="optionsToggle(5);"><div class="tooltip">Font Tool</div></div>
+        <div class="toolicon"><img src="ly-maker2-save-tool.png" onclick="optionsToggle(6);"><div class="tooltip">Save/Load Layout</div></div>
+        <div class="toolicon"><img src="ly-maker2-export-tool.png" onclick="optionsToggle(7);"><div class="tooltip">Export Layout</div></div>
+        <div class="toolicon hidden" id="returnoption"><img src="ly-maker2-return.png" onclick="optionsToggle(-1);"><div class="tooltip">Return</div></div>
+        <hr class="divider">
+        <div id="currentoptions">Select any tool to start.</div>
+      </div>
+    </div>
+    
+  </section>
+  
+  <footer>
+    <a href="https://www.smwcentral.net/"><img alt="SMW Central" border="0" src="https://www.smwcentral.net/link/88x31.gif" title="SMW Central"></a><br>
+    This page is not part of SMWCentral.<br>
+    Report any bugs and send any suggestions to <a href="https://www.smwcentral.net/?p=profile&id=26481">RanAS</a>.<br>
+    <a href="https://icons8.com">Icons provided by Icons8</a> - <a href="javascript:;" onclick="themeToggle();">Toggle Day/Night Themes</a><br><br>
+  </footer>
+</body>
+</html>

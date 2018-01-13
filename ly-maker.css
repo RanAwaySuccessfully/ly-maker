@@ -1,9 +1,9 @@
 ﻿/* Layout Maker XP */
 
-body.theme0 {background: #000 url(https://bin.smwcentral.net/u/26481/LayoutRAN_HexTeal.png);}
+body.theme0 {background: #0D0F17;}
 .theme0 section {
-    background: #071313;
-    border-color: #266;
+    background: #161A28;
+    border-color: #4C65AE;
     border-width: 0 1px;
     padding: 7px !important;
 }
@@ -17,23 +17,23 @@ body.theme0 {background: #000 url(https://bin.smwcentral.net/u/26481/LayoutRAN_H
 }
 .theme0 input, .theme0 button, .theme0 input[type=submit], .theme0 select, .theme0 textarea {
     margin: 1px;
-    border-color: #266;
-    background: #122;
+    border-color: #4C65AE;
+    background: #1A2132;
 }
 
-.theme0 option {background: #122;}
-.theme0 button:active, .theme0 input[type=submit]:active {background: #1A3333;}
+.theme0 option {background: #1D2438;}
+.theme0 button:active, .theme0 input[type=submit]:active {background: #2B3654;}
 .theme0 textarea {border-width: 0 1px; padding: 3px;}
 
-.theme0 table {border-color: #2F6A6A;}
-.theme0 tr td {border-color: #2F6A6A;}
-.theme0 th {background: #2F6A6A;}
-.theme0 tr {background: #1F4747;}
-.theme0 tr:nth-of-type(odd) {background: #173535;}
+.theme0 table {border-color: #4C65AE;}
+.theme0 tr td {border-color: #4C65AE;}
+.theme0 th {background: #4C65AE;}
+.theme0 tr {background: #273459;}
+.theme0 tr:nth-of-type(odd) {background: #1F2A47;}
 
 .theme0 .quote .box {border-color: #405060;}
-.theme0 a {color: #69C9C9;}
-.theme0 section:not(#ly-makerPreview) a:hover {color: #69C9C9;}
+.theme0 a {color: #667FCC;}
+.theme0 section:not(#ly-makerPreview) a:hover {color: #667FCC;}
 
 .theme0 #ly-makerPreview {padding: 0 !important; border-width: 1px;}
 .theme0 #ly-makerPreview>h2 {display: none;}
@@ -251,6 +251,7 @@ body.theme4 {
     border-bottom: 1px solid #000800;
     border-right: 1px solid #000800;
 }
+.theme4 button[rhslcolor] {border-color: #457040;}
 .theme4 textarea {background: #0A1009;}
 
 .theme4 table {border-color: #457040;}
@@ -261,10 +262,6 @@ body.theme4 {
 .theme4 .quote .box {border-color: #181818;}
 .theme4 a {color: #D8D870; font-weight: bold;}
 .theme4 section:not(#ly-makerPreview) a:hover {color: #F8F8C8;}
-
-.theme4 input[type=checkbox]:checked + label {background-position: 0 -30px;}
-.theme4 input[type=radio]:checked + label {background-position: 0 -60px;}
-.theme4 input[type=checkbox]:not(.oldinput) + label, input[type=radio]:not(.oldinput) + label {background-size: 15px;}
 
 
 /* Sky 2 */
@@ -453,6 +450,7 @@ body.theme13 {background: #000 url(https://www.smwcentral.net/html/glassifiedsch
     color: #C0EFBC;
 }
 
+.theme13 button {height: 23px;}
 .theme13 table {border-color: #981020;}
 .theme13 tr td {border-color: #981020;}
 .theme13 th {background: #981020; border-top: 1px solid #981020;}
