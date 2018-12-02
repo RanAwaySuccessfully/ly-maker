@@ -1,11 +1,11 @@
-﻿<!DOCTYPE html>
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
   <title>Layout Maker XP - SMWC</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="UTF-8">
   <style>
-    html, body {height: 100%;}
+    html, body {min-height: 100%;}
     body {
       margin: 0;
       background: #000;
@@ -42,6 +42,7 @@
       box-sizing: border-box;
     }
     input {padding: 2px;}
+    button.selectall {margin-top: 3px;}
     
     .theme input, .theme button, .theme select, .theme textarea {background: #111;} /* This only applies to the Fallback CSS when selected as a theme. */
     
@@ -100,46 +101,20 @@
     }
   </style>
   <link href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAD1BMVEVldC0AAAAAuPjAmHj///5CCF4OAAAAAXRSTlMAQObYZgAAAAFiS0dEAIgFHUgAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAHdElNRQfgDAwOFjf7Dd5JAAAATElEQVQI133L0QmAQAwD0GaDprpAb4PDCYTsP5PhvB9/DKU8AgkwQTIDSoj6gNyoPnVnUDVcteGNW0N6sWJUj3WBg0hOz6/E9PsDdx4HBQ14frnV2wAAAABJRU5ErkJggg==" rel="icon" type="image/png">
-  <link href="ly-maker.css?ver=1.5" rel="stylesheet">
-  <script defer src="ly-maker.js?ver=1.5"></script>
-  <script defer src="ly-maker-rhsl.js?ver=1.5"></script>
+  <link href="ly-maker.css?ver=1.6" rel="stylesheet">
+  <script defer src="ly-maker.js?ver=1.6"></script>
+  <script defer src="ly-maker-rhsl.js?ver=1.6"></script>
 </head>
 
 <body class="theme1">
-  <header><img alt="Layout Maker by RanAS" src="ly-maker.jpg?ver=1.5"></header>
+  <header><img alt="Layout Maker by RanAS" src="ly-maker.jpg?ver=1.6"></header>
   <span style="/* Dirty hacks, dirty hacks, does whatever dirt can. */"><a href="https://www.smwcentral.net" style="margin: 10px 0 0 10px; text-shadow: 0 0 3px #000;">&lt;&lt;&lt; Click here to go back to SMWCentral</a></span>
 
   <section>
-    <h2>Layout Maker XP for SMWC - v1.5</h2>
-    This is a page for generating layouts usable in SMWCentral. Using this page on mobile devices is <strong>not</strong> recommended. It's possible to use the layouts generated here in other forums but they may not display/behave properly. You'll be able to see how the layout looks against a few of the website's themes which can be selected below:<br>
+    <h2>Layout Maker XP for SMWC - v1.6</h2>
+    This is a page for generating layouts usable in SMWCentral. Using this page on mobile devices is <strong>not</strong> recommended. It's possible to use the layouts generated here in other forums but they may not display/behave properly. You'll be able to see how the layout looks against a few of the website's themes.<br>
     <br>
-    <label for="themeSelector" style="font-weight: bold;">Theme:</label> <select id="themeSelector" style="width: auto;">
-      <option value="">Fallback CSS</option>
-      <option value="0">Layout Maker XP</option>
-      <option selected value="1">SMWC - Default</option>
-      <option value="20">SMWC - C3 Modern Mario</option>
-      <option value="21">SMWC - C3 8-Bit</option>
-      <option value="22">SMWC - C3 Peach's Castle</option>
-      <option value="23">SMWC - Rain</option>
-      <optgroup label="SMWC Dated Themes">
-        <option value="2">SMWC - Halloween</option>
-        <option value="3">SMWC - Night</option>
-        <option value="4">SMWC - Yoshi's Island</option>
-        <option value="5">SMWC - Sky 2</option>
-        <option value="6">SMWC - Hex</option>
-        <option value="7">SMWC - Winter</option>
-        <option value="8">SMWC - Circuit</option>
-        <option value="9">SMWC - Christmas</option>
-        <option value="10">SMWC - Zelda</option>
-        <option value="11">SMWC - Doomsday</option>
-        <option value="12">SMWC - Cave</option>
-        <option value="13">SMWC - Glassified</option>
-        <option value="14 t14r">SMWC - Social Red</option>
-        <option value="14 t14g">SMWC - Social Green</option>
-        <option value="14 t14b">SMWC - Social Blue</option>
-      </optgroup>
-    </select> <noscript><b>JavaScript is required.</b></noscript><br>
-    <br>
+    <noscript><b style="font-size: 20px;">JavaScript is not enabled on your browser, and it's required for Layout Maker XP to work.</b><br><br></noscript>
     
     Information on Layout Maker:<br>
     <ul>
@@ -169,7 +144,7 @@
       <li>If the post doesn't occupy the entire of the post frame (there's empty space at the bottom), change the <u>min-height: ???px;</u> property in your post layout to a higher value. This problem depends on how much content is in a user's sidebar.</li>
     </ul>
     <br>
-    Created on December 03, 2016. Last updated: January 13, 2018.<br>
+    Created on December 03, 2016. Last updated: December 02, 2018.<br>
     <br>
     
     <form action="javascript:;">
@@ -514,23 +489,55 @@
       </table>
     <br>
     
-    <br>
     <input id="generateInline" type="checkbox"><label for="generateInline">Generate no linebreaks in the CSS code.</label><br>
     <input id="ignoreErrors" type="checkbox"><label for="ignoreErrors">Ignore most warnings and errors. <strong>(not recommended)</strong></label><br>
     <input id="exportCSSfile" type="checkbox"><label for="exportCSSfile">Export and format CSS to an external file.</label> <a id="externalCSSanchor" target="_blank"></a><br>
     <br>
-    <button id="generateButton" onclick="javascript:makeLayout();">Generate Layout</button> <button type="button" id="previewButton" onclick="javascript:previewLayout();" style="display: none;">Preview Layout</button> <button id="switchButton" onclick="javascript:switchMode();">Switch Modes</button> <strong>- Currently <span id="currentModeText"><noscript>disabled. Layout Maker XP needs JavaScript enabled in order to work.</noscript></span></strong>
+    
+    <a name="editingmodelink"></a>
+    <label for="themeSelector" style="font-weight: bold;">Theme:</label> <select id="themeSelector" style="width: auto;">
+      <option value="">Fallback CSS</option>
+      <option value="0">Layout Maker XP</option>
+      <option selected value="1">SMWC - Default</option>
+      <option value="26">SMWC - All-Stars</option>
+      <option value="25">SMWC - Switch Palace</option>
+      <option value="23">SMWC - Rain</option>
+      <option value="24">SMWC - C3 Odyssey</option>
+      <option value="22">SMWC - C3 Peach's Castle</option>
+      <option value="21">SMWC - C3 8-Bit</option>
+      <option value="20">SMWC - C3 Modern Mario</option>
+      <optgroup label="SMWC Dated Themes">
+        <option value="2">SMWC - Halloween</option>
+        <option value="3">SMWC - Night</option>
+        <option value="4">SMWC - Yoshi's Island</option>
+        <option value="5">SMWC - Sky 2</option>
+        <option value="6">SMWC - Hex</option>
+        <option value="7">SMWC - Winter</option>
+        <option value="8">SMWC - Circuit</option>
+        <option value="9">SMWC - Christmas</option>
+        <option value="10">SMWC - Zelda</option>
+        <option value="11">SMWC - Doomsday</option>
+        <option value="12">SMWC - Cave</option>
+        <option value="13">SMWC - Glassified</option>
+        <option value="14 t14r">SMWC - Social Red</option>
+        <option value="14 t14g">SMWC - Social Green</option>
+        <option value="14 t14b">SMWC - Social Blue</option>
+      </optgroup>
+    </select><br>
+    
+    <br>
+    <button id="generateButton" onclick="javascript:makeLayout();">Generate Layout</button> <button type="button" id="previewButton" onclick="javascript:previewLayout();" style="display: none;">Preview Layout</button> <button id="switchButton" onclick="javascript:switchMode();">Switch Modes</button> <strong>- Currently <span id="currentModeText"><noscript>disabled. Layout Maker XP needs JavaScript in order to work.</noscript></span></strong>
     </form><br>
     <br>
     
     <strong>Layout Header:</strong><br>
     <textarea id="ly-makerHeader" readonly rows="13"></textarea><br>
-    <button onclick="javascript:document.getElementById('ly-makerHeader').select();">Select All</button><br>
+    <button class="selectall" onclick="javascript:document.getElementById('ly-makerHeader').select();">Select All</button><br>
     <br>
     
     <strong>Layout Footer:</strong><br>
     <textarea id="ly-makerFooter" readonly rows="2"></textarea><br>
-    <button onclick="javascript:document.getElementById('ly-makerFooter').select();">Select All</button>
+    <button class="selectall" onclick="javascript:document.getElementById('ly-makerFooter').select();">Select All</button>
 
     <div id="errors" style="display: none;"></div>
     <div id="warnings" style="display: none;"></div>

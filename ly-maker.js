@@ -172,9 +172,9 @@ function makeLayout() {
     if (postbgAlpha > 66) {colorContrast(postbgColor, postboxText);}
 //  Step 3 - Le Backgrounds:
     var arrayBg = [];
-    if (bgImg) {bgImg = "url(" + bgImg +  ") " + bgPos1 + " " + bgPos2 + " " + bgRepeat; arrayBg.unshift(bgImg);}
-    if (bg2Img) {bg2Img = "url(" + bg2Img +  ") " + bg2Pos1 + " " + bg2Pos2 + " " + bg2Repeat; arrayBg.unshift(bg2Img);}
-    if (sideimgUrl) {sideimgUrl = "url(" + sideimgUrl +  ") " + sideimgPos + " right no-repeat"; arrayBg.unshift(sideimgUrl);}
+    if (bgImg) {bgImg = "url(" + bgImg.replace(")", "%29").replace("(", "%28") +  ") " + bgPos1 + " " + bgPos2 + " " + bgRepeat; arrayBg.unshift(bgImg);}
+    if (bg2Img) {bg2Img = "url(" + bg2Img.replace(")", "%29").replace("(", "%28") +  ") " + bg2Pos1 + " " + bg2Pos2 + " " + bg2Repeat; arrayBg.unshift(bg2Img);}
+    if (sideimgUrl) {sideimgUrl = "url(" + sideimgUrl.replace(")", "%29").replace("(", "%28") +  ") " + sideimgPos + " right no-repeat"; arrayBg.unshift(sideimgUrl);}
     if (arrayBg[0]) {bgColor += " " + arrayBg.pop();}
     arrayBg.push(bgColor);
     var defactoBg = "background: " + arrayBg.join(", ") + "; ";

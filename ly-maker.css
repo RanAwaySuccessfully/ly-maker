@@ -196,6 +196,128 @@ body.theme23 {background: #14192A url(https://www.smwcentral.net/html/rainscheme
 .theme23 section:not(#ly-makerPreview) a:hover {color: hsl(225, 50%, 90%);}
 
 
+/* C3 - Odyssey */
+
+body.theme24 {background: #A30505 url('https://www.smwcentral.net/html/c3w2018/bg-red.png') left -8px;}
+.theme24 section {background: rgb(38, 38, 38);}
+.theme24 section:first-of-type {
+    background: rgb(12, 12, 12);
+    box-shadow: 0px 1px rgba(0, 0, 0, .25) inset, 0px 2px rgba(255, 255, 255, .33) inset, 0 2px 3px -2px rgba(0, 0, 0, .54) inset;
+    margin-left: 0;
+    margin-right: 0;
+    border: 0;
+    border-bottom: 1px solid #000;
+    padding: 0 10px 10px;
+}
+
+.theme24 section:first-of-type h2 {background: transparent; margin: 0; margin-bottom: 4px; border: 0; font-weight: bold;}
+.theme24 h2 {color: #999999; background: #151515; padding: 6px 8px; font-weight: normal;}
+.theme24 input, .theme24 button, .theme24 select {
+    background: rgba(0, 0, 0, .13);
+    color: rgb(234, 234, 234);
+    border: 0;
+    border-bottom: 1px solid rgb(255, 7, 7);
+    border-radius: 2px;
+    outline: none;
+    padding: 5px;
+}
+.theme24 select {padding: 4px;}
+.theme24 option, .theme24 optgroup {background: rgb(25, 25, 25);}
+
+.theme24 table, .theme24 tr td {border-color: rgb(14, 14, 14); border-style: solid;}
+.theme24 tr {background: rgb(25, 25, 25);}
+.theme24 tr:nth-of-type(even) {background: rgb(38, 38, 38);}
+.theme24 th {background: #151515; border-bottom: 1px solid rgb(14, 14, 14);}
+.theme24 textarea {background: #0E0E0E;
+    border: 0;
+    border-radius: 2px;
+    box-shadow: 0px -1px rgba(255, 255, 255, .13) inset;
+    padding: 4px 6px;
+    outline: none;
+}
+
+.theme24 .quote .box {border-color: #405060;}
+.theme24 a {color: rgb(255, 7, 7);}
+.theme24 section:not(#ly-makerPreview) a:hover {color: rgb(255, 7, 7);}
+
+
+/* Switch Palace */
+
+body.theme25 {background: #6880A0 url(https://www.smwcentral.net/html/switchpalace/background.png);}
+.theme25 section {
+    background: rgba(0, 0, 0, 0.75);
+    border: 8px solid;
+    border-image: url('data:image/gif;base64,R0lGODlhGAAYAMIFAHBwcKDI+Kjg+MD4+Ojw+Dk5OTk5OTk5OSH5BAEKAAcALAAAAAAYABgAAAOceKrQ/m/J00IAJBNrQQeTFwgClpEkAZDd4qGDOcxDBgzoxYw0Rtc2mkD3EsxKKIFGZcQNK80nZ3nh4S6QrFa7fE5cXazmCvpSxk8Z2XwmHMVRFRsTh85sc6vtBZSb+RpQS2VfL4MeVIQhAYlbjltWT1QcfGRFRyYESUxHXpUxGT9Bb2VFRj40gU5eOyNIKIMsOhIVVRaJH3OPDhMJADs=') 8 repeat;
+    border-radius: 8px;
+}
+
+.theme25 h2 {
+    padding: 5px;
+    background: transparent;
+    margin: 0 -8px 5px;
+    border: 8px solid;
+    border-image: url('data:image/gif;base64,R0lGODdhGAAIAMIFAHBwcKDI+Kjg+MD4+Ojw+Dk5OTk5OTk5OSwAAAAAGAAIAAADNQi63M4hSkAqkQHgqIL4QmaBAqGR2TkMIUWsa6Wyqbe2L2zN7QlmJIvJ8+tsNBFhZpN6OJ0JADs=') 8 repeat;
+    border-top: none;
+    color: #99F;
+}
+
+.theme25 section:first-of-type {
+    padding: 5px;
+    padding-top: 0;
+    border-image: url('data:image/gif;base64,R0lGODlhGAAYAMIFAAAAAEhIiGhosICAyOjw+Dk5OTk5OTk5OSH5BAEKAAcALAAAAAAYABgAAAOceKrQ/m/J00IAJBNrQQeTFwgClpEkAZDd4qGDOcxDBgzoxYw0Rtc2mkD3EsxKKIFGZcQNK80nZ3nh4S6QrFa7fE5cXazmCvpSxk8Z2XwmHMVRFRsTh85sc6vtBZSb+RpQS2VfL4MeVIQhAYlbjltWT1QcfGRFRyYESUxHXpUxGT9Bb2VFRj40gU5eOyNIKIMsOhIVVRaJH3OPDhMJADs=') 8 repeat;
+}
+.theme25 section:first-of-type h2 {
+    border: 0;
+    margin: 0 0 5px;
+    text-decoration: underline;
+}
+
+.theme25 input, .theme25 button, .theme25 select, .theme25 textarea {border-color: #405060;}
+
+.theme25 table {border-color: #405060;}
+.theme25 tr td {border-color: #405060;}
+.theme25 th {background: #405060;}
+
+.theme25 .quote .box {border-color: #405060;}
+.theme25 a, .theme25 section:not(#ly-makerPreview) a:hover {color: #B2B3FF;}
+
+
+/* All-Stars */
+
+body.theme26 {background: url(https://www.smwcentral.net/html/smas/images/bg_hills.png) bottom repeat-x, #000 url(https://www.smwcentral.net/html/smas/images/bg_stars.gif);}
+.theme26 section {
+    border: 3px double #405060;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.theme26 h2 {margin: 0 -3px; border-bottom: 3px double #405060; padding: 5px; background: transparent;}
+
+.theme26 section:first-of-type {
+    padding: 5px;
+    border: 7px solid;
+    border-image: url('data:image/gif;base64,R0lGODlhGAAYAMIFAAAAAH0LC6U5Fc1hN+GHXTk5OTk5OTk5OSH5BAEKAAcALAAAAAAYABgAAANxeLrc3iDKSemKJOvNc4gKQARDaZ7oEHwhoQpwLMuBwB7iYK983+u3nK1ScQ1bQMDjYgw2lUvcE3mMCp3JqDS7rS6vULBW3L19p2XomUteV9sPMpg4QV87HdLbRUr5a041M4M0QQA+iIkgIXSNi1qQCwkAOw==') 7 repeat;
+}
+.theme26 section:first-of-type h2 {
+    padding-top: 0;
+    margin: 0 -12px 5px;
+    border: 7px solid;
+    border-image: url('data:image/gif;base64,R0lGODlhGAAIAMIFAAAAAH0LC6U5Fc1hN+GHXTk5OTk5OTk5OSH5BAEKAAcALAAAAAAYAAgAAAM0eEAjASfKudqL1YHN+2YaRoxkaY4WpDBD675wKjZCbd94uFpB7//Ay07jKYKEGeGEcoQkAAA7') 7 repeat;
+    border-top: none;
+    color: #99F;
+}
+
+.theme26 input, .theme26 button, .theme26 select, .theme26 textarea {border-color: #405060;}
+
+.theme26 table {border-color: #405060;}
+.theme26 tr td {border-color: #405060; border-style: solid;}
+.theme26 th {background: rgba(24, 0, 48, 0.75); border-bottom: 1px solid #405060;}
+.theme26 td {background: rgba(0, 0, 24, 0.75);}
+
+.theme26 .quote .box {border-color: #405060;}
+.theme26 a, .theme26 section:not(#ly-makerPreview) a:hover {color: #9F9;}
+
+
+
 /* NOTE: DATED THEMES GO AHEAD OF THIS CSS COMMENT - PUT ALL RECENT THEMES BEFORE THIS LINE */
 
 /* Halloween */
