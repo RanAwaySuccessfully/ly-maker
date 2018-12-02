@@ -6,6 +6,7 @@ border = [borderPost, borderQuote, borderCode, borderSpoiler, radiusPost, radius
 bg     = [url, positiony, positionx, repeat];
 font   = [fontFamily, customGoogleFont, customSerif, textShadow1, textShadow2, textShadow3];
 */
+var IEfix = false;
 var database = {
     "size": ["20px", "7px", "5px", "5px", "2px", "2px", "1px", 0, 0, 0, 0, "100px", 0],
     "color": ["#102030", "#405060", "#000000", "#FFFFFF", "#000000", "#90B0F0", "#90B0F0", "#90B0F0", "#90B0F0", "rgba(0, 0, 0, 0.4)", "#000000", "rgba(0, 0, 0, 0.4)", "#000000", "#000000", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF"],
@@ -51,8 +52,9 @@ function optionsToggle(s) {
             tools[i].className = "toolicon";
         }
         document.getElementById("returnoption").className = "toolicon hidden";
-        document.getElementById("currentoptions").innerHTML = "<div><strong>Layout Maker XP 2</strong><br>version 1.1.1</div>";
+        document.getElementById("currentoptions").innerHTML = "<div><strong>Layout Maker XP 2</strong><br>version 1.2</div>";
         layoutGenerator();
+        IEfix = false;
         return;
     }
     for (var i = 0; i < tools.length - 1; i++) {
@@ -60,7 +62,7 @@ function optionsToggle(s) {
         tools[i].className = "toolicon hidden";
     }
     document.getElementById("returnoption").className = "toolicon";
-    return s === 0 ? sizeTool(true) : s === 1 ? settingsTool(true) : s === 2 ? colorTool(true) : s === 3 ? borderTool(true) : s === 4 ? backgroundTool(true) : s === 5 ? fontTool(true) : s === 6 ? saveTool(true) : s === 7 ? exportTool(true) : unknownTool();
+    return s === 0 ? sizeTool(true) : s === 1 ? settingsTool(true) : s === 2 ? colorTool(true) : s === 3 ? borderTool(true) : s === 4 ? backgroundTool(true) : s === 5 ? fontTool(true) : s === 6 ? saveTool(true) : s === 7 ? importTool(true) : s === 8 ? exportTool(true) : unknownTool();
 }
 
 // LAYOUT TOOLS
@@ -71,13 +73,12 @@ function sizeTool(uidraw, index, value) {
         for (var i = 0; i < (database.size.length - 1); i++) {
             uiNumbers[i] = database.size[i].toString().replace(/(px)/g,"");
         }
-        uiNumbers[11] -= 100;
-        document.getElementById("currentoptions").innerHTML = '<div><strong>Margin:</strong> <input type="number" max="75" min="0" placeholder="0" value="' + uiNumbers[0] + '"  oninput="sizeTool(false, 0, this.value);"> | <strong>Padding:</strong> <input type="number" max="40" min="0" placeholder="0" value="' + uiNumbers[1] + '" oninput="sizeTool(false, 1, this.value);"> | <strong>Quote/Code Box Padding:</strong> <input type="number" max="30" min="0" placeholder="3" value="' + uiNumbers[2] + '"  oninput="sizeTool(false, 2, this.value);"> | <strong>min-height:</strong> <input type="number" max="180" min="0" placeholder="0" value="' + uiNumbers[11] + '" oninput="sizeTool(false, 11, this.value);"><br><strong>Box Shadow:</strong> <input type="number" id="postshadowinput0" max="15" min="-15" placeholder="0" value="' + uiNumbers[4] + '" oninput="sizeTool(false, 4, this.value);">&nbsp;<input type="number" id="postshadowinput1" max="15" min="-15" placeholder="0" value="' + uiNumbers[5] + '" oninput="sizeTool(false, 5, this.value);">&nbsp;<input type="number" id="postshadowinput2" max="40" min="0" placeholder="0" value="' + uiNumbers[6] + '" oninput="sizeTool(false, 6, this.value);"> | <strong>Quote Box Shadow:</strong> <input type="number" id="postshadowinput4" max="15" min="-15" placeholder="0" value="' + uiNumbers[7] + '" oninput="sizeTool(false, 7, this.value);">&nbsp;<input type="number" id="postshadowinput5" max="15" min="-15" placeholder="0" value="' + uiNumbers[8] + '" oninput="sizeTool(false, 8, this.value);">&nbsp;<input type="number" id="postshadowinput6" max="40" min="0" placeholder="0" value="' + uiNumbers[9] + '" oninput="sizeTool(false, 9, this.value);"></div>';
+        document.getElementById("currentoptions").innerHTML = '<div><strong>Margin:</strong> <input type="number" max="75" min="0" placeholder="0" value="' + uiNumbers[0] + '"  oninput="sizeTool(false, 0, this.value);"> | <strong>Padding:</strong> <input type="number" max="40" min="0" placeholder="0" value="' + uiNumbers[1] + '" oninput="sizeTool(false, 1, this.value);"> | <strong>Quote/Code Box Padding:</strong> <input type="number" max="30" min="0" placeholder="3" value="' + uiNumbers[2] + '"  oninput="sizeTool(false, 2, this.value);"> | <strong>min-height:</strong> <input type="number" max="300" min="100" placeholder="0" value="' + uiNumbers[11] + '" oninput="sizeTool(false, 11, this.value);"><br><strong>Box Shadow:</strong> <input type="number" id="postshadowinput0" max="15" min="-15" placeholder="0" value="' + uiNumbers[4] + '" oninput="sizeTool(false, 4, this.value);">&nbsp;<input type="number" id="postshadowinput1" max="15" min="-15" placeholder="0" value="' + uiNumbers[5] + '" oninput="sizeTool(false, 5, this.value);">&nbsp;<input type="number" id="postshadowinput2" max="40" min="0" placeholder="0" value="' + uiNumbers[6] + '" oninput="sizeTool(false, 6, this.value);"> | <strong>Quote Box Shadow:</strong> <input type="number" id="postshadowinput4" max="15" min="-15" placeholder="0" value="' + uiNumbers[7] + '" oninput="sizeTool(false, 7, this.value);">&nbsp;<input type="number" id="postshadowinput5" max="15" min="-15" placeholder="0" value="' + uiNumbers[8] + '" oninput="sizeTool(false, 8, this.value);">&nbsp;<input type="number" id="postshadowinput6" max="40" min="0" placeholder="0" value="' + uiNumbers[9] + '" oninput="sizeTool(false, 9, this.value);"></div>';
         layoutGenerator(false, true);
         return;
     }
-    var min = [0, 0, 0, 0, -15, -15, 0, -15, -15, 0, 0, 0];
-    var max = [75, 40, 30, 30, 15, 15, 40, 15, 15, 40, 400, 180];
+    var min = [0, 0, 0, 0, -15, -15, 0, -15, -15, 0, 0, 100];
+    var max = [75, 40, 30, 30, 15, 15, 40, 15, 15, 40, 400, 300];
     if (value < min[index] || value > max[index] || isNaN(value)) {return;} //validator
     if (index >= 4 && index <= 6) {
         if (Math.abs(value) > database.size[0].replace(/px/g, "")) {document.getElementById("postshadowinput" + (index - 4)).className = "invalidinput"; return;} else {document.getElementById("postshadowinput" + (index - 4)).removeAttribute("class");}
@@ -93,7 +94,6 @@ function sizeTool(uidraw, index, value) {
             } else {document.getElementById("postshadowinput" + i).removeAttribute("class");}
         }
     } //box shadow validator
-    if (index === 11) {value = Number(value) + 100;}
     if (!value) {database.size[index] = 0;} else {database.size[index] = value + "px";}
     layoutGenerator(false, true);
 }
@@ -101,14 +101,15 @@ function settingsTool(uidraw, value, index) {
     if (uidraw) {
         var contrastArray = colorContrast();
         var bgColor = database.color[1];
-        var textColor = database.color[3];
+        bgColor = bgColor.replace(/%/g, "%25").replace(/,/g, "%2C").replace(/ /g, "%20").replace(/\(/g, "%28").replace(/\)/g, "%29");
+        var textColor = database.color[3].replace(/#/g, "%23");
         document.getElementById("currentoptions").innerHTML = '<div><strong>Layout Name:</strong> <input type="text" value="' + database.name + '" pattern="[A-Za-z]{1}[A-Za-z0-9_-]*" oninput="settingsTool(false, this.value);" required><br><strong>Signature Type:</strong> ' + 
             '<select onchange="settingsTool(false, this.value, 12);">' + 
                 '<option class="listofSigOptions" value="0">Signature Box</option>' + 
                 '<option class="listofSigOptions" value="1">Post Box</option>' + 
                 '<option class="listofSigOptions" value="2">Post Box (w/ horizontal linebreak)</option>' + 
                 '<option class="listofSigOptions" value="3">None</option>' + 
-            '</select> | <strong>Contrast Ratio:</strong> ' + contrastArray[1] + '</div><a href="https://leaverou.github.io/contrast-ratio/#' + textColor + '-on-' + bgColor + '" target="_blank" style="margin: 0 0 0 auto;"><div class="contrastcircle contrast' + contrastArray[1] + '">' + contrastArray[0] + '</div></a>';
+            '</select> | <strong>Contrast Ratio:</strong> ' + contrastArray[1] + '</div><a href="https://contrast-ratio.com/#' + textColor + '-on-' + bgColor + '" target="_blank" style="margin: 0 0 0 auto;"><div class="contrastcircle contrast' + contrastArray[1] + '">' + contrastArray[0] + '</div></a>';
         var selectList = document.getElementsByClassName("listofSigOptions");
         for (var i = 0; i < selectList.length; i++) {if (selectList[i].value === database.size[9]) {selectList[i].selected = true;}}
         return;
@@ -138,7 +139,9 @@ function colorTool(uidraw, index, element) {
             }
             document.getElementById("currentoptions").innerHTML = "<div>Click on the item that you want to change the color of.<br><a href=\"javascript:;\" onclick=\"colorTool(true, -1)\">If you want to change the text color, click here instead.</a></div>";
         } else {
-            for (var i = 0; i < elementList.length ; i++) {elementList[i].removeAttribute("onclick");}
+            if (IEfix) {return;}
+            for (var i = 0; i < elementList.length; i++) {elementList[i].removeAttribute("onclick");}
+            IEfix = true;
             if (index === 2) {index = 1;}
             if (index === 3) {index = 13;}
             if (index === 6) {index = 9;}
@@ -213,7 +216,9 @@ function borderTool(uidraw, index, element, isborder) {
             }
             document.getElementById("currentoptions").innerHTML = "Click on the item that you want to change the border of.";
         } else {
+            if (IEfix) {return;}
             for (var i = 0; i < elementList.length ; i++) {elementList[i].removeAttribute("onclick");}
+            IEfix = true;
             if (index === 0) {index = 1;}
             index += 13;
             var borderindex = index - 14;
@@ -320,11 +325,11 @@ function backgroundTool(uidraw, index, bgIndex, value) {
         return;
     }
     if (bgIndex === 0) {
-        if (value.match(/(^[A-Z]:\\)|(^file:\/\/)/) || value.match(/[\\();]/)) {
+        if (value.match(/(^[A-Z]:\\)|(^file:\/\/)/)) {
             document.getElementById("backgroundsettings").children[0].className = "invalidinput";
             return;
         } else {document.getElementById("backgroundsettings").children[0].removeAttribute("class");}
-        if (value) {value = "url(" + value + ")";}
+        if (value) {value = value.replace(")", "%29").replace("(", "%28"); value = "url(" + value + ")";}
     }
     database.bg[index][bgIndex] = value;
     layoutGenerator();
@@ -426,6 +431,12 @@ function saveTool(uidraw, event, cookieaction, drawJSON) {
         reader.readAsText(file);
     } else {document.getElementById("currentoptions").innerHTML = 'Your browser does not fully support the <a href="https://caniuse.com/#feat=fileapi" target="_blank">File API</a>. Therefore, the JSON file could not be loaded.';}
 }
+function importTool(uidraw) {
+    if (uidraw) {
+        document.getElementById("currentoptions").innerHTML = '<div>If you\'re looking for a way to put in your own custom layout and preview it as you edit it, please use the Editing Mode in <a href="https://bin.smwcentral.net/u/26481/ly-maker.html#editingmodelink">Layout Maker XP 1</a> instead.';
+        return;
+    }
+}
 function exportTool(uidraw, exportSettings) {
     if (uidraw) {
         document.getElementById("currentoptions").innerHTML = '<div>This tool will generate the layout\'s HTML and CSS code.<br><button onclick="exportTool(false, -1);">Reset Layout</button> <button onclick="exportTool(false, this.nextElementSibling.nextElementSibling.value);">Export Layout</button> | <strong>Options:</strong> <select>' + 
@@ -477,7 +488,7 @@ function layoutGenerator(shouldExport, doScroll) {
         bgArray = bgArray.join(", ");
     } else {bgArray = database.color[0];}
     var generatedLayout = ['<style>\n' + generatedFontExtra + ' .' + database.name + '_bg {background: ' + 
-    bgArray + '; padding: ' + database.size[0] + '; font-family: ' + generatedFont + '; color: ' + database.color[3] + '; text-shadow: ' + database.font[3] + ' ' + database.font[4] + ' ' + database.font[5] + ' ' + database.color[4] + '; min-height: ' + database.size[8] + ';}\n .' + database.name + '_post {background: ' + database.color[1] + '; border: ' + database.border[0] + database.color[14] + '; border-radius: ' + database.border[4] + '; padding: ' + database.size[1] + '; box-shadow: ' + database.size[4] + ' ' + database.size[5] + ' ' + database.size[6] + ' ' + database.color[2] + '; margin-right: ' + database.size[10] + ';}\n .' + database.name + '_post a {color: ' + database.color[5] + '; font-weight: normal; text-shadow: inherit;} .' + database.name + '_post a:hover {color: ' + database.color[6] + ';}\n .' + database.name + '_post .quote .box {background: ' + database.color[9] + '; border: ' + database.border[1] + database.color[15] + '; border-radius: ' + database.border[5] + '; padding: ' + database.size[2] + '; box-shadow: ' + database.size[7] + ' ' + database.size[8] + ' ' + database.size[9] + ' ' + database.color[10] + ';}\n .' + database.name + '_post .quote a {color: ' + database.color[7] + ';} .' + database.name + '_post .quote a:hover {color: ' + database.color[8] + ';}\n .' + database.name + '_post .code .box {background: ' + database.color[11] + '; border: ' + database.border[2] + database.color[16] + '; border-radius: ' + database.border[6] + '; padding: ' + database.size[2] + '; box-shadow: ' + database.size[7] + ' ' + database.size[8] + ' ' + database.size[9] + ' ' + database.color[12] + '; color: inherit; white-space: pre-wrap;}\n .' + database.name + '_post .spoiler {background: ' + database.color[13] + ' !important; border: ' + database.border[3] + database.color[17] + ' !important; border-radius: ' + database.border[7] + ';}\n .' + database.name + '_post .code .boxhead {color:  inherit;} .' + database.name + '_post .code br {display: none;}\n .' + database.name + '_post hr {border: 0; height: 1px; background: ' + database.color[14] + ';} /* Layout Maker XP 2 */\n</style>' + '<div class="' + database.name + '_bg"><div class="' + database.name + '_post">',
+    bgArray + '; padding: ' + database.size[0] + '; font-family: ' + generatedFont + '; color: ' + database.color[3] + '; text-shadow: ' + database.font[3] + ' ' + database.font[4] + ' ' + database.font[5] + ' ' + database.color[4] + '; min-height: ' + database.size[11] + ';}\n .' + database.name + '_post {background: ' + database.color[1] + '; border: ' + database.border[0] + database.color[14] + '; border-radius: ' + database.border[4] + '; padding: ' + database.size[1] + '; box-shadow: ' + database.size[4] + ' ' + database.size[5] + ' ' + database.size[6] + ' ' + database.color[2] + '; margin-right: ' + database.size[10] + ';}\n .' + database.name + '_post a {color: ' + database.color[5] + '; font-weight: normal; text-shadow: inherit;} .' + database.name + '_post a:hover {color: ' + database.color[6] + ';}\n .' + database.name + '_post .quote .box {background: ' + database.color[9] + '; border: ' + database.border[1] + database.color[15] + '; border-radius: ' + database.border[5] + '; padding: ' + database.size[2] + '; box-shadow: ' + database.size[7] + ' ' + database.size[8] + ' ' + database.size[9] + ' ' + database.color[10] + ';}\n .' + database.name + '_post .quote a {color: ' + database.color[7] + ';} .' + database.name + '_post .quote a:hover {color: ' + database.color[8] + ';}\n .' + database.name + '_post .code .box {background: ' + database.color[11] + '; border: ' + database.border[2] + database.color[16] + '; border-radius: ' + database.border[6] + '; padding: ' + database.size[2] + '; box-shadow: ' + database.size[7] + ' ' + database.size[8] + ' ' + database.size[9] + ' ' + database.color[12] + '; color: inherit; white-space: pre-wrap;}\n .' + database.name + '_post .spoiler {background: ' + database.color[13] + ' !important; border: ' + database.border[3] + database.color[17] + ' !important; border-radius: ' + database.border[7] + ';}\n .' + database.name + '_post .code .boxhead {color:  inherit;} .' + database.name + '_post .code br {display: none;}\n .' + database.name + '_post hr {border: 0; height: 1px; background: ' + database.color[14] + ';} /* Layout Maker XP 2 */\n</style>' + '<div class="' + database.name + '_bg"><div class="' + database.name + '_post">',
     '<div class="quote"><span class="boxhead">Originally posted by Sample quote</span><div class="box"><div class="quote"><span class="boxhead">Originally posted by Sample nested quote</span><div class="box"><div class="spoiler"><div class="spoilerInner">Sample spoiler</div></div><br>Sample text</div></div><br><a class="anchoronclickreference" href="javascript:;">Sample link</a><br>Sample quote</div></div><br><div class="code"><span class="boxhead">Code</span><pre class="box">Sample code</pre></div><br><a class="anchoronclickreference" href="javascript:;">Sample link</a><br>Sample post with <b>bold</b> and <i>italics</i>.'];
     var generatedFooter = ['</div><div class="' + database.name + '_post" style="margin-top: ' + database.size[0] + ';">SIGNATURE TEXT HERE.</div></div>', '<br>--------------------<br>SIGNATURE TEXT HERE.</div></div>', '<br><hr>SIGNATURE TEXT HERE.</div></div>', '</div></div>'];
     generatedLayout.push(generatedFooter[database.size[12]]);
